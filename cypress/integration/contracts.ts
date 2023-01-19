@@ -1,0 +1,4 @@
+export const CONTRACTS = {
+  BERA: '0x2a544e54C6e44E17b090bE001936Cf161c473cb0', //test tokens
+  TUSD: '0x8DC74bEb464A3236a235453D66B30949241B67E7', //test tokens
+}
