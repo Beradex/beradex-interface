@@ -61,7 +61,7 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#b34700' : '#74350c',
+    primary1: darkMode ? '#ffc000' : '#74350c',
     primary2: darkMode ? '#f07622' : '#e97a2f',
     primary3: darkMode ? '#f07622' : '#ee975d',
     primary4: darkMode ? '#af4804' : '#612903', // inner buttons
