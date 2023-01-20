@@ -23,13 +23,13 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: Partial<ChainTokenList> = {
   [ChainId.MAINNET]: pickNetwork([tTOKEN, WETH] as any, ChainId.MAINNET),
-  [ChainId.TESTNET]: pickNetwork([USDC], ChainId.TESTNET),
+  [ChainId.TESTNET]: pickNetwork([USDC, WETH], ChainId.TESTNET),
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.MAINNET]: pickNetwork([ETHER, tTOKEN] as any, ChainId.MAINNET),
-  [ChainId.TESTNET]: pickNetwork([USDC], ChainId.TESTNET),
+  [ChainId.TESTNET]: pickNetwork([USDC, WETH], ChainId.TESTNET),
   [ChainId.RINKEBY]: pickNetwork([USDC], ChainId.RINKEBY),
 }
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

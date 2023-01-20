@@ -31,8 +31,8 @@ if (!!window.ethereum) {
       method: 'wallet_addEthereumChain',
       params: [
         {
-          chainId: '0x09001', // beradex change to berachain mainnet
-          chainName: 'HARDHAT',
+          chainId: '0x09000', // beradex change to berachain mainnet
+          chainName: 'Bera Mainnet',
           nativeCurrency: {
             name: 'ETH',
             symbol: 'ETH',
