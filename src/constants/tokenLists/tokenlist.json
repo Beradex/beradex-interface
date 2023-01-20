@@ -13,7 +13,7 @@
       "symbol": "WBERA",
       "chainId": 9000,
       "decimals": 18,
-      "address": "0x197b2e6678b32CeA414F6b08Dd764a6612292fE5",
+      "address": "",
       "logoURI": "https://storage.googleapis.com/us-central1-dgc-berlin-0-470cbba9-bucket/tokenlist/wevmos.png"
     },
     {
@@ -21,7 +21,7 @@
       "symbol": "DIFF",
       "chainId": 9000,
       "decimals": 18,
-      "address": "0x7e806d59528f6fa7cccadb4821dd42551113defc",
+      "address": "",
       "logoURI": "https://storage.googleapis.com/us-central1-dgc-berlin-0-470cbba9-bucket/tokenlist/DIFF.png"
     }
   ]

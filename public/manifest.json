@@ -17,8 +17,8 @@
     }
   ],
   "orientation": "portrait",
-  "name": "beraDEX",
-  "short_name": "beraDEX",
+  "name": "Beradex",
+  "short_name": "Beradex",
   "start_url": ".",
   "theme_color": "#ff007a"
 }
