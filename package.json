@@ -131,7 +131,7 @@
     "compile-contract-types": "yarn compile-external-abi-types && yarn compile-v3-contract-types",
     "compile-external-abi-types": "typechain --target ethers-v5 --out-dir src/abis/types './src/abis/**/*.json'",
     "compile-v3-contract-types": "typechain --target ethers-v5 --out-dir src/types/v3 './node_modules/@uniswap/?(v3-core|v3-periphery)/artifacts/contracts/**/*.json'",
-    "build": "CI= react-scripts build",
+    "build": "CI='' yarn build",
     "integration-test:watch": "dotenv -c -- start-server-and-test 'yarn start' http://localhost:3003 'cypress open --config baseUrl=http://localhost:3003'",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
     "postinstall": "yarn compile-contract-types",
