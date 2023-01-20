@@ -1,29 +1,29 @@
 import { CONTRACTS } from './contracts'
-const { MEVMOS, MUSDC, MATOM } = CONTRACTS
+const { BERA, TUSD, MATOM } = CONTRACTS
 
 describe('Remove Liquidity', () => {
   it('Native remove', () => {
-    cy.visit(`/remove/v2/EVMOS/${MUSDC}`)
+    cy.visit(`/remove/v2/EVMOS/${TUSD}`)
     cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'EVMOS')
-    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'MUSDC')
+    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'TUSD')
   })
 
   it('Native remove swap order', () => {
-    cy.visit(`/remove/v2/${MUSDC}/EVMOS`)
-    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'MUSDC')
+    cy.visit(`/remove/v2/${TUSD}/EVMOS`)
+    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'TUSD')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'EVMOS')
   })
 
   it('loads the two correct tokens', () => {
-    cy.visit(`/remove/v2/${MUSDC}/${MATOM}`)
-    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'MUSDC')
+    cy.visit(`/remove/v2/${TUSD}/${MATOM}`)
+    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'TUSD')
     cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'MATOM')
   })
 
   it('does not crash if WEVMOS is duplicated', () => {
-    cy.visit(`/remove/v2/${MEVMOS}/${MEVMOS}`)
-    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'MEVMOS')
-    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'MEVMOS')
+    cy.visit(`/remove/v2/${BERA}/${BERA}`)
+    cy.get('#remove-liquidity-tokena-symbol').should('contain.text', 'BERA')
+    cy.get('#remove-liquidity-tokenb-symbol').should('contain.text', 'BERA')
   })
 
   it('does not crash if EVMOS is duplicated', () => {

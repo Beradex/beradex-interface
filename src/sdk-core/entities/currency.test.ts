@@ -1,5 +1,5 @@
 import { Token } from './index'
-import { Canto } from 'constants/native-token'
+import { WETH9 } from 'constants/native-token'
 
 describe('Currency', () => {
   const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
@@ -10,10 +10,10 @@ describe('Currency', () => {
 
   describe('#equals', () => {
     it('ether on same chains is ether', () => {
-      expect(Canto.onChain(1).equals(Canto.onChain(1)))
+      expect(WETH9.onChain(1).equals(WETH9.onChain(1)))
     })
     it('ether is not token0', () => {
-      expect(Canto.onChain(1).equals(t0)).toStrictEqual(false)
+      expect(WETH9.onChain(1).equals(t0)).toStrictEqual(false)
     })
     it('token1 is not token0', () => {
       expect(t1.equals(t0)).toStrictEqual(false)

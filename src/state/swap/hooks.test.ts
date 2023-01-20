@@ -4,17 +4,17 @@ import { queryParametersToSwapState } from './hooks'
 
 describe('hooks', () => {
   describe('#queryParametersToSwapState', () => {
-    test('CANTO to DAI', () => {
+    test('BERA to DAI', () => {
       expect(
         queryParametersToSwapState(
           parse(
-            '?inputCurrency=CANTO&outputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&exactAmount=20.5&exactField=outPUT',
+            '?inputCurrency=BERA&outputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&exactAmount=20.5&exactField=outPUT',
             { parseArrays: false, ignoreQueryPrefix: true }
           )
         )
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: '0x826551890Dc65655a0Aceca109aB11AbDbD7a07B' },
-        [Field.INPUT]: { currencyId: 'CANTO' },
+        [Field.OUTPUT]: { currencyId: '0x197b2e6678b32CeA414F6b08Dd764a6612292fE5' },
+        [Field.INPUT]: { currencyId: 'BERA' },
         typedValue: '20.5',
         independentField: Field.OUTPUT,
         recipient: null,
@@ -25,7 +25,7 @@ describe('hooks', () => {
       expect(
         queryParametersToSwapState(parse('?outputCurrency=invalid', { parseArrays: false, ignoreQueryPrefix: true }))
       ).toEqual({
-        [Field.INPUT]: { currencyId: 'CANTO' },
+        [Field.INPUT]: { currencyId: 'BERA' },
         [Field.OUTPUT]: { currencyId: '' },
         typedValue: '',
         independentField: Field.INPUT,
@@ -33,13 +33,13 @@ describe('hooks', () => {
       })
     })
 
-    test('output CANTO only', () => {
+    test('output BERA only', () => {
       expect(
         queryParametersToSwapState(
-          parse('?outputCurrency=canto&exactAmount=20.5', { parseArrays: false, ignoreQueryPrefix: true })
+          parse('?outputCurrency=BERA&exactAmount=20.5', { parseArrays: false, ignoreQueryPrefix: true })
         )
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: 'EVMOS' },
+        [Field.OUTPUT]: { currencyId: 'BERA' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
@@ -50,10 +50,10 @@ describe('hooks', () => {
     test('invalid recipient', () => {
       expect(
         queryParametersToSwapState(
-          parse('?outputCurrency=evmos&exactAmount=20.5&recipient=abc', { parseArrays: false, ignoreQueryPrefix: true })
+          parse('?outputCurrency=BERA&exactAmount=20.5&recipient=abc', { parseArrays: false, ignoreQueryPrefix: true })
         )
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: 'EVMOS' },
+        [Field.OUTPUT]: { currencyId: 'BERA' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
@@ -64,13 +64,13 @@ describe('hooks', () => {
     test('valid recipient', () => {
       expect(
         queryParametersToSwapState(
-          parse('?outputCurrency=canto&exactAmount=20.5&recipient=0x0fF2D1eFd7A57B7562b2bf27F3f37899dB27F4a5', {
+          parse('?outputCurrency=BERA&exactAmount=20.5&recipient=0x0fF2D1eFd7A57B7562b2bf27F3f37899dB27F4a5', {
             parseArrays: false,
             ignoreQueryPrefix: true,
           })
         )
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: 'CANTO' },
+        [Field.OUTPUT]: { currencyId: 'BERA' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
@@ -80,13 +80,13 @@ describe('hooks', () => {
     test('accepts any recipient', () => {
       expect(
         queryParametersToSwapState(
-          parse('?outputCurrency=canto&exactAmount=20.5&recipient=bob.argent.xyz', {
+          parse('?outputCurrency=BERA&exactAmount=20.5&recipient=bob.argent.xyz', {
             parseArrays: false,
             ignoreQueryPrefix: true,
           })
         )
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: 'CANTO' },
+        [Field.OUTPUT]: { currencyId: 'BERA' },
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
