@@ -1,6 +1,6 @@
 // a list of tokens by chain
 import { Token } from '@uniswap/sdk-core'
-import { USDC, ETHER, NOTE, WETH, ATOM, tTOKEN } from './tokens'
+import { USDC, ETHER, NOTE, WETH, tTOKEN } from './tokens'
 import { ChainId } from './chains'
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
