@@ -60,9 +60,9 @@ export const XDIFF = makeToken('XDIFF', 'XDIFF', 18, {
 /*
 export const BERA = makeToken('BERA', 'BERA', 9, {
   //@TODO: FIX MAINNET
-  [ChainId.MAINNET]: '0xFCd2Ce20ef8ed3D43Ab4f8C2dA13bbF1C6d9512F',
+  [ChainId.MAINNET]: '',
   [ChainId.TESTNET]: TESTNET.testBERA,
-  [ChainId.RINKEBY]: '0xDfbBc5573024984ddac30BbE632fa3DAA821aBaD',
+  [ChainId.RINKEBY]: '',
 })
 
 export const XDIFFUSION = makeToken('xDiffusion', 'XDIFF', 18, {

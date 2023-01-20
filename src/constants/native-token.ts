@@ -6,8 +6,8 @@ import { WETH9_ADDRESS } from './addresses'
 
 export const WETH = {
   // Mainly for unit tests
-  1: new Token(1, WETH9_ADDRESS[4], 18, 'WETH', 'Wrapped Ether'),
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, WETH9_ADDRESS[ChainId.MAINNET], 18, 'WETH', 'Wrapped Ether'),
+  1: new Token(1, WETH9_ADDRESS[4], 18, 'WBERA', 'Wrapped Bera'),
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, WETH9_ADDRESS[ChainId.MAINNET], 18, 'WBERA', 'Wrapped Bera'),
   [ChainId.TESTNET]: new Token(ChainId.TESTNET, WETH9_ADDRESS[ChainId.TESTNET], 18, 'WBERA', 'Wrapped Bera'),
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, WETH9_ADDRESS[ChainId.RINKEBY], 18, 'WEVMOS', 'Wrapped Evmos'),
 }
