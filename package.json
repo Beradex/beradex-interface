@@ -1,7 +1,7 @@
 {
   "name": "@beradex-mainnet/interface",
   "description": "Beradex Interface",
-  "homepage": "",
+  "homepage": ".",
   "private": true,
   "devDependencies": {
     "@craco/craco": "^6.4.3",
