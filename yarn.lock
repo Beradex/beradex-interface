@@ -14136,6 +14136,11 @@ node-addon-api@^2.0.0:
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-2.0.2.tgz#432cfa82962ce494b132e9d72a15b29f71ff5d32"
   integrity sha512-Ntyt4AIXyaLIuMHF6IOoTakB3K+RWxwtsHNRxllEoA6vPwP9o4866g6YWDLUdnucilZhmkxiHwHr11gAENw+QA==
 
+node-bin-setup@^1.0.0:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/node-bin-setup/-/node-bin-setup-1.1.3.tgz#d45d5220e3b2ecc3a94263a56116f727f6c1bb14"
+  integrity sha512-opgw9iSCAzT2+6wJOETCpeRYAQxSopqQ2z+N6BXwIMsQQ7Zj5M8MaafQY8JMlolRR6R1UXg2WmhKp0p9lSOivg==
+
 node-dir@^0.1.10:
   version "0.1.17"
   resolved "https://registry.yarnpkg.com/node-dir/-/node-dir-0.1.17.tgz#5f5665d93351335caabef8f1c554516cf5f1e4e5"
@@ -14239,6 +14244,13 @@ node-vibrant@^3.1.5:
     "@types/node" "^10.11.7"
     lodash "^4.17.20"
     url "^0.11.0"
+
+node@16.x:
+  version "16.19.0"
+  resolved "https://registry.yarnpkg.com/node/-/node-16.19.0.tgz#7e9b96a37aeb5b18312a9f796d3c71583fa6035a"
+  integrity sha512-gVpwPuk8KZQjNYcuilyEcNLOAm97Q4GNvCrW5pZ9SiQH/shy/G4gInNzITEqF00lb6bjSzmYWCvGlomGkLm3/A==
+  dependencies:
+    node-bin-setup "^1.0.0"
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
   version "2.5.0"
