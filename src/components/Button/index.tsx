@@ -57,7 +57,7 @@ export const ButtonPrimary = styled(Base)`
     `linear-gradient(264deg, ${theme.secondary1_30} 0%, ${theme.darkTransparent} 33%),  ${theme.secondary1_30} 66%`};
   border: 1px solid ${({ theme }) => theme.primary1};
   color: white;
-  font-family: 'Graphik', sans-serif;
+  font-family: 'Graphik';
   src: local(./public/fonts/Graphik.otf) format ('otf');
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
@@ -136,8 +136,8 @@ export const ButtonSecondary = styled(Base)`
   color: ${({ theme }) => theme.white};
   background-color: transparent;
   font-size: 1rem;
-  font-family: 'Graphik', sans-serif;
-  src: local(./public/fonts/Grapik.otf) format ('otf');
+  font-family: 'Graphik';
+  src: local(./public/fonts/Graphik.otf) format ('otf');
   border-radius: 8px;
   padding: ${({ padding }) => (padding ? padding : '10px')};
 
@@ -188,8 +188,8 @@ export const ButtonUNIGradient = styled(ButtonPrimary)`
   color: white;
   padding: 4px 8px;
   height: 36px;
-  font-family: 'Graphik', sans-serif;
-  src: local(./public/fonts/Grapik.otf) format ('otf');
+  font-family: 'Graphik';
+  src: local(./public/fonts/Graphik.otf) format ('otf');
   font-weight: 500;
   background-color: ${({ theme }) => theme.bg3};
   background: radial-gradient(174.47% 188.91% at 1.84% 0%, #ff007a 0%, #2172e5 100%), #edeef2;
@@ -231,7 +231,7 @@ export const ButtonEmpty = styled(Base)`
   background-color: transparent;
   color: ${({ theme }) => theme.primary1};
   display: flex;
-  font-family: 'Graphik', sans-serif;
+  font-family: 'Graphik';
   src: local(./public/fonts/Grapik.otf) format ('otf');
   justify-content: center;
   align-items: center;
@@ -310,8 +310,8 @@ const ButtonConfirmedStyle = styled(Base)`
 const ButtonErrorStyle = styled(Base)`
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
-  font-family: 'Graphik', sans-serif;
-  src: local(./public/fonts/Grapik.otf) format ('otf');
+  font-family: 'Graphik';
+  src: local(./public/fonts/Graphik.otf) format ('otf');
 
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.red1)};
