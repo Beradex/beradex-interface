@@ -78,7 +78,7 @@ export function colors(darkMode: boolean): Colors {
     secondary2: darkMode ? '#001715' : '#F6DDE8',
     secondary3: darkMode ? '#001617' : '#FDEAF1',
 
-    secondary1_30: 'rgba(214, 132, 9, 0.1)',
+    secondary1_30: 'rgba(116, 88, 9, 0.3)',
     secondary1_10: 'rgba(144, 90, 8, 0.1)',
 
     dark0: 'rgba(18, 16, 18, 0.9)', //switch token buttonBG
@@ -88,7 +88,7 @@ export function colors(darkMode: boolean): Colors {
     dark3: 'rgba(224, 143, 3, 0.9)',
     dark4: 'rgba(114, 66, 0, 1)',
     dark5: 'transparent',
-    darkTransparent: 'rgba(207, 171, 207, 0.12)',
+    darkTransparent: 'rgba(18, 16, 18, 0.9)',
     darkTransparent2: 'rgba(59, 34, 0, 0.32)',
     darkTransparent3: 'rgba(18, 16, 18,0.8)',
 

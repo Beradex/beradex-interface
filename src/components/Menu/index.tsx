@@ -35,7 +35,7 @@ export const StyledMenuButton = styled.button`
   margin: 0;
   padding: 0;
   height: 35px;
-  background-color: rgba(232, 39, 226, 0.05);
+  background-color: rgba(204, 123, 1, 0.05);
   box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(47, 27, 0, 0.1);
   border: 1px solid rgba(188, 110, 0, 0.7);
 

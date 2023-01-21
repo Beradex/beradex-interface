@@ -92,8 +92,8 @@ const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
 `
 
 const Web3StatusConnected = styled(Web3StatusGeneric)<{ pending?: boolean }>`
-  background-color: ${({ pending }) => (pending ? 'rgba(232, 39, 226, 0.25)' : `rgba(232, 39, 226, 0.05)`)};
-  border: 1px double ${({ pending, theme }) => (pending ? theme.primary1 : `rgba(232, 39, 226, 0.08)`)};
+  background-color: ${({ pending }) => (pending ? 'rgba(204, 123, 1, 0.25)' : `rgba(204, 123, 1, 0.05)`)};
+  border: 1px double ${({ pending, theme }) => (pending ? theme.primary1 : `rgba(204, 123, 1, 0.08)`)};
   color: ${({ pending, theme }) => (pending ? theme.white : theme.text1)};
   font-weight: 500;
   :hover,

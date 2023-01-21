@@ -11,7 +11,7 @@ const TuxBanner = styled.img`
   object-position: 0% 20%;
   margin-top: -10%;
   margin-bottom: 1%;
-  border: 1px solid rgba(232, 39, 226, 0.6);
+  border: 1px solid rgba(204, 123, 1, 0.6);
   box-shadow: 0 0 20px rgba(47, 27, 0, 0.1), 0 0 40px rgba(98, 56, 0, 0.3);
   -webkit-filter: brightness(90%) contrast(90%) grayscale(50%);
   filter: brightness(80%) contrast(100%);

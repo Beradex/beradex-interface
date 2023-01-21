@@ -123,6 +123,40 @@ export function MobileMenu() {
           >
             {t('pool')}
           </StyledNavLink>
+          <BridgeMenu />
+        </Menu>
+      )}
+    </div>
+  )
+}
+
+/*
+
+ORIGINAL
+  return (
+    <div ref={node as any}>
+      <StyledBridgeButton onClick={toggle} isActive={open} ref={setReferenceElement as any}>
+        {location.pathname.startsWith('/swap') ? 'Swap' : location.pathname.startsWith('/pool') ? 'Pool' : 'Stake'}
+      </StyledBridgeButton>
+
+      {open && (
+        <Menu ref={setPopperElement as any} style={styles.popper} {...attributes.popper}>
+          <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
+            {t('swap')}
+          </StyledNavLink>
+          <StyledNavLink
+            id={`pool-nav-link`}
+            to={'/pool'}
+            isActive={(match, { pathname }) =>
+              Boolean(match) ||
+              pathname.startsWith('/add') ||
+              pathname.startsWith('/remove') ||
+              pathname.startsWith('/increase') ||
+              pathname.startsWith('/find')
+            }
+          >
+            {t('pool')}
+          </StyledNavLink>
           <StyledNavLink
             id={`farm-nav-link`}
             to={'/farm'}
@@ -139,3 +173,5 @@ export function MobileMenu() {
     </div>
   )
 }
+
+*/

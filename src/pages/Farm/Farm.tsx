@@ -38,7 +38,6 @@ import { HRDark } from '../../components/HR/HR'
 import { useUSDCValue } from 'hooks/useUSDCPrice'
 import { FarmYield } from 'components/farm/FarmYield'
 import { Glow } from '../AppBody'
-import { NomadWarningBanner } from 'components/WarningBanner/NomadWarningBanner'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -166,7 +165,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
         </Heading>
         <DoubleCurrencyLogo currency0={token1 ?? undefined} currency1={token0 ?? undefined} size={48} margin={true} />
       </AutoRow>
-      {NOMAD_POOLS.includes(poolId) && <NomadWarningBanner />}
+      {NOMAD_POOLS.includes(poolId)}
 
       <FarmYield
         apr={totalAPR}

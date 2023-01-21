@@ -40,7 +40,6 @@ export function FarmListPage() {
   return (
     <FarmListContainer>
       <Tux />
-      <NomadWarningBanner />
       <FarmHeading />
       {/* {pools.map((pool) => pool.lpTokenAddress && <Pool key={pool.lpTokenAddress} {...pool} />).filter(isTruthy)} */}
       <FarmTable>

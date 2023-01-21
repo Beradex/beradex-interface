@@ -17,7 +17,7 @@ export const HR = styled.hr`
     75%,
     rgba(14, 28, 67, 0.5)
   );
-  box-shadow: 0 0 10px rgba(232, 39, 226, 0.4), 0 0 20px rgba(232, 39, 226, 0.6);
+  box-shadow: 0 0 10px rgba(204, 123, 1, 0.4), 0 0 20px rgba(204, 123, 1, 0.6);
   //margin-top: 2%;
   //margin-bottom: 2%;
 `
