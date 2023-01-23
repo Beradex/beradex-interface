@@ -24,7 +24,7 @@ const StyledBridgeButton = styled.div<{ isActive?: boolean }>`
   ${({ isActive }) =>
     isActive &&
     css`
-      border-radius: 8px;
+      border-radius: 10px;
       color: ${({ theme }) => theme.text3};
       background-color: ${({ theme }) => theme.bg3};
     `}
@@ -40,7 +40,7 @@ const Menu = styled.div`
   background: ${({ theme }) => `linear-gradient(90deg, ${theme.dark0} 0%, ${theme.dark2} 35%, ${theme.dark0} 100%);`};
   box-shadow: 0 0 5px rgba(136, 75, 0, 0.2), 0 0 7px rgba(136, 75, 0, 0.2);
   border: 1px solid rgba(188, 110, 0, 0.7);
-  border-radius: 8px;
+  border-radius: 10px;
   backdrop-filter: blur(4px) brightness(50%) saturate(150%);
 `
 

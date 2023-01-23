@@ -61,7 +61,7 @@ export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
 `
 
 export const ErrorPill = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
-  border-radius: 8px;
+  border-radius: 10px;
 
   color: ${({ theme, severity }) =>
     severity === 3 || severity === 4
@@ -87,7 +87,7 @@ export const StyledBalanceMaxMini = styled.button`
   width: fit-content;
   background-color: ${({ theme }) => theme.bg1};
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 0;
   font-size: 0.875rem;
   font-weight: 400;

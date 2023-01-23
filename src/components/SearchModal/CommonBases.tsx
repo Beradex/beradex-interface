@@ -13,7 +13,7 @@ import { CurrencyLogoFromList } from 'components/CurrencyLogo/CurrencyLogoFromLi
 
 const BaseWrapper = styled.div<{ disable?: boolean }>`
   border: 1px solid ${({ theme, disable }) => (disable ? 'transparent' : theme.primaryTransparent)};
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   padding: 6px;
 

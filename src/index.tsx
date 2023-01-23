@@ -38,7 +38,7 @@ if (!!window.ethereum) {
             symbol: 'ETH',
             decimals: 18,
           },
-          rpcUrls: ['http://127.0.0.1:8545/'], // BERA MAINNET
+          rpcUrls: ['https://eth.bd.evmos.dev:8545'], // BERA MAINNET
           blockExplorerUrls: ['https://evm.evmos.dev'], // BERA MAINNET
         },
       ],

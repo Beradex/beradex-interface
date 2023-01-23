@@ -309,7 +309,7 @@ const BalanceRow = styled(RowBetween)`
     `linear-gradient(90deg, ${theme.darkTransparent} 0%, ${theme.secondary1_30} 50%, ${theme.darkTransparent} 100%);`};
   border: 1px solid rgba(188, 110, 0, 0.7);
   box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(98, 56, 0, 0.3);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 2% 5%;
   font-size: 22px;
   backdrop-filter: blur(4px) saturate(150%);

@@ -73,7 +73,7 @@ export const MenuFlyout = styled.span<{ flyoutAlignment?: FlyoutAlignment }>`
     `linear-gradient(90deg, ${theme.dark0} 0%, ${theme.dark2} 50%, ${theme.dark0} 100%);`};
   box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(47, 27, 0, 0.1);
   border: 1px solid rgba(188, 110, 0, 0.7);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;

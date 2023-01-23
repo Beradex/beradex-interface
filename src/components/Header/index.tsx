@@ -150,7 +150,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   align-items: center;
   background: ${({ theme }) =>
     `linear-gradient(90deg, ${theme.darkTransparent2} 0%, ${theme.secondary1_10} 50%, ${theme.darkTransparent2} 100%);`};
-  border-radius: 8px;
+  border-radius: 10px;
   white-space: nowrap;
   width: 100%;
   cursor: pointer;
@@ -175,7 +175,7 @@ const HideLarge = styled.span`
 `
 
 const NetworkCard = styled(YellowCard)`
-  border-radius: 8px;
+  border-radius: 10px;
   font-family: 'Graphik';
   src: local(./public/fonts/Graphik.otf) format ('otf');
   padding: 8px 12px;

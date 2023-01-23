@@ -28,7 +28,7 @@ const ActiveDot = styled.span`
 
 export const DarkBadge = styled.div`
   width: fit-content;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: ${({ theme }) => theme.bg0};
   padding: 4px 6px;
 `

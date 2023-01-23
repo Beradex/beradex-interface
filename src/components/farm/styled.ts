@@ -13,14 +13,14 @@ export const TextBox = styled.div`
   justify-content: center;
   padding: 4px 12px;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
+  border-radius: 10px;
   width: fit-content;
   justify-self: flex-end;
 `
 
 export const DataCard = styled(AutoColumn)<{ disabled?: boolean }>`
   /* background: radial-gradient(76.02% 75.41% at 1.84% 0%, #ff007a 0%, #2172e5 100%); */
-  border-radius: 8px;
+  border-radius: 10px;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -31,7 +31,7 @@ export const CardBGImage = styled.span<{ desaturate?: boolean }>`
   width: 1000px;
   height: 600px;
   position: absolute;
-  border-radius: 8px;
+  border-radius: 10px;
   opacity: 0.4;
   top: -160px;
   left: -160px;
@@ -45,7 +45,7 @@ export const CardNoise = styled.span`
   background: url(${noise});
   background-size: cover;
   mix-blend-mode: overlay;
-  border-radius: 8px;
+  border-radius: 10px;
   width: 100%;
   height: 100%;
   opacity: 0.15;
@@ -59,8 +59,8 @@ export const CardSection = styled(AutoColumn)<{ disabled?: boolean }>`
   padding: 1rem;
   z-index: 1;
   opacity: ${({ disabled }) => disabled && '0.4'};
-  backdrop-filter: blur(3px) saturate(350%) brightness(30%) grayscale(40%);
-  border-radius: 8px;
+  backdrop-filter: blur(3px) saturate(350%) brightness(50%) grayscale(40%);
+  border-radius: 10px;
 `
 
 export const Break = styled.div`
@@ -73,7 +73,7 @@ export const DataRow = styled(RowBetween)`
   justify-content: center;
   gap: 12px;
   backdrop-filter: blur(4px) saturate(150%);
-  border-radius: 8px;
+  border-radius: 10px;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
     flex-direction: column;
@@ -85,7 +85,7 @@ export const DataRow = styled(RowBetween)`
 export const DataButtonRow = styled(RowBetween)`
   justify-content: center;
   gap: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
     flex-direction: column;

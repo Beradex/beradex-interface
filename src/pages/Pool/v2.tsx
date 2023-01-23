@@ -57,7 +57,7 @@ const ResponsiveButtonPrimary = styled(ButtonPrimary)`
 
 const ResponsiveButtonSecondary = styled(ButtonSecondary)`
   width: fit-content;
-  background-color: #271401b3;
+  background-color: #6a4902b3;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     width: 48%;
   `};

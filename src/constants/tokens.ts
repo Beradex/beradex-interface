@@ -18,8 +18,9 @@ export const ETHER = Ether.onChain(ChainId.MAINNET)
   ),
 } */
 
-export const NOTE = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503', 18, 'NOTE', 'Note'),
+export const HONEY = {
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0x7a721f5330f0d3079EbDf77da01771cEf9B97ae7', 18, 'HONEY', 'HONEY'),
+  [ChainId.TESTNET]: new Token(ChainId.TESTNET, '0x7a721f5330f0d3079EbDf77da01771cEf9B97ae7', 18, 'tHONEY', 'tHONEY'),
 }
 
 export const ETH = {

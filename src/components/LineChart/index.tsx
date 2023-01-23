@@ -91,7 +91,7 @@ const LineChart = ({
           borderVisible: false,
         },
         watermark: {
-          color: 'rgba(0, 0, 0, 0)',
+          color: 'rgba(141, 71, 0, 0)',
         },
         grid: {
           horzLines: {

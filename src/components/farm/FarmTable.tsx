@@ -18,8 +18,8 @@ const FarmContainer = styled(Column)`
   max-width: 1080px;
   width: 100%;
   //background: ${({ theme }: { theme: DefaultTheme }) => theme.secondary1_30};
-  //box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
-  //  0px 24px 32px rgba(0, 0, 0, 0.01);
+  //box-shadow: 0px 0px 1px rgba(141, 71, 0, 0.01), 0px 4px 8px rgba(141, 71, 0, 0.04), 0px 16px 24px rgba(141, 71, 0, 0.04),
+  //  0px 24px 32px rgba(141, 71, 0, 0.01);
   border-radius: 10px;
   padding: 24px;
   //border: 1px solid blue;
@@ -30,7 +30,7 @@ const FarmContainer = styled(Column)`
     `linear-gradient(90deg, ${theme.darkTransparent} 0%, ${theme.secondary1_30} 35%, ${theme.darkTransparent} 100%);`};
   border: 1px solid rgba(188, 110, 0, 0.7);
   box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(98, 56, 0, 0.3);
-  border-radius: 8px;
+  border-radius: 10px;
   ${Glow}
 `
 
@@ -68,8 +68,8 @@ const FarmTableHeaderText = styled(AutoColumn)`
 
 const FarmTableHeaderContainer = styled(AutoRow)`
   //background: ${({ theme }: { theme: DefaultTheme }) => theme.secondary1_30};
-  //box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
-  //  0px 24px 32px rgba(0, 0, 0, 0.01);
+  //box-shadow: 0px 0px 1px rgba(141, 71, 0, 0.01), 0px 4px 8px rgba(141, 71, 0, 0.04), 0px 16px 24px rgba(141, 71, 0, 0.04),
+  //  0px 24px 32px rgba(141, 71, 0, 0.01);
   //border-radius: 8px 8px 0px 0px;
   //padding: 10px 25px;
   padding-left: 11%;

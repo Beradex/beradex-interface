@@ -1,6 +1,6 @@
 // a list of tokens by chain
 import { Token } from '@uniswap/sdk-core'
-import { USDC, ETHER, NOTE, WETH, tTOKEN } from './tokens'
+import { USDC, ETHER, HONEY, WETH, tTOKEN } from './tokens'
 import { ChainId } from './chains'
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
@@ -8,7 +8,7 @@ type ChainTokenList = {
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
-  [ChainId.MAINNET]: pickNetwork([ETHER, WETH, NOTE, tTOKEN] as any, ChainId.MAINNET),
+  [ChainId.MAINNET]: pickNetwork([ETHER, WETH, HONEY, tTOKEN] as any, ChainId.MAINNET),
   [ChainId.TESTNET]: pickNetwork([USDC], ChainId.TESTNET),
   [ChainId.RINKEBY]: pickNetwork([USDC], ChainId.RINKEBY),
 }

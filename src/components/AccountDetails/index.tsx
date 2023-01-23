@@ -55,7 +55,7 @@ const UpperSection = styled.div`
 const InfoCard = styled.div`
   padding: 1rem;
   border: 1px solid ${({ theme }) => theme.primaryTransparent};
-  border-radius: 8px;
+  border-radius: 10px;
   position: relative;
   display: grid;
   grid-row-gap: 12px;

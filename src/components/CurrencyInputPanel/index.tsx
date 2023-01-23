@@ -60,9 +60,9 @@ const CurrencySelect = styled(ButtonGray)<{ selected: boolean; hideInput?: boole
   font-weight: 500;
   background: ${({ selected, theme }) => (selected ? theme.darkTransparent : `transparent`)};
   color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
-  border-radius: 8px;
-  box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
+  border-radius: 10px;
+  box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(141, 71, 0, 0.075)')};
+  box-shadow: 0px 6px 10px rgba(141, 71, 0, 0.075);
   outline: none;
   cursor: pointer;
   user-select: none;

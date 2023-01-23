@@ -27,7 +27,6 @@ import { FarmHeading } from '../../components/farm/FarmHeading'
 import { HRDark } from '../../components/HR/HR'
 import { CurrencyAmount } from 'sdk-core/entities'
 import { useUSDCValue } from 'hooks/useUSDCPrice'
-import { NomadWarningBanner } from 'components/WarningBanner/NomadWarningBanner'
 
 const FarmListContainer = styled.div`
   max-width: 1080px;

@@ -26,8 +26,8 @@ export const PopoverContainer = styled.div<{ show: boolean }>`
   transition: visibility 150ms linear, opacity 150ms linear;
   background: ${({ theme }) => theme.bg2};
   border: 1px solid ${({ theme }) => theme.bg3};
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
-    0px 24px 32px rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 0px 1px rgba(141, 71, 0, 0.01), 0px 4px 8px rgba(141, 71, 0, 0.04),
+    0px 16px 24px rgba(141, 71, 0, 0.04), 0px 24px 32px rgba(141, 71, 0, 0.01);
   color: ${({ theme }) => theme.text2};
   border-radius: 0.5rem;
   padding: 1rem;
@@ -84,7 +84,7 @@ export const SearchInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  border-radius: 8px;
+  border-radius: 10px;
   color: ${({ theme }) => theme.text1};
   border-style: solid;
   border: 1px solid ${({ theme }) => theme.secondary1_30};

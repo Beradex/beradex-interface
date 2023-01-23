@@ -26,7 +26,7 @@ export const Popup = styled.div`
   border: 1px solid rgba(188, 110, 0, 0.7);
   box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(98, 56, 0, 0.3);
   position: relative;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 20px;
   padding-right: 35px;
   overflow: hidden;

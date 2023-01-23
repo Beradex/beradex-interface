@@ -81,7 +81,7 @@ export function colors(darkMode: boolean): Colors {
     secondary1_30: 'rgba(116, 88, 9, 0.3)',
     secondary1_10: 'rgba(144, 90, 8, 0.1)',
 
-    dark0: 'rgba(18, 16, 18, 0.9)', //switch token buttonBG
+    dark0: 'rgba(9, 8, 8, 0.9)', //switch token buttonBG
     dark1: 'rgba(224, 143, 3, 0.9)',
     //dark2: 'rgba(10,14,36, 0.9)',
     dark2: 'rgba(14, 14, 14, 0.8)',
@@ -262,7 +262,7 @@ body::-webkit-scrollbar {
 
 
  a {
-   color: ${colors(false).blue1}; 
+   color: ${colors(false).blue1};
  }
 
 * {
@@ -278,7 +278,7 @@ html {
   font-variant: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(141, 71, 0, 0);
   font-feature-settings: 'ss01' on, 'ss02' on,  'cv01' on, 'cv03' on;
 
 }

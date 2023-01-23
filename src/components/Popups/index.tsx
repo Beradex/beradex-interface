@@ -43,7 +43,7 @@ const FixedPopupColumn = styled(AutoColumn)<{ extraPadding: boolean }>`
   ${({ theme }) => theme.mediaWidth.upToSmall`
     display: none;
   `};
-  border-radius: 8px;
+  border-radius: 10px;
   ${Glow}
 `
 

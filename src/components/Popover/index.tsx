@@ -14,10 +14,10 @@ const PopoverContainer = styled.div<{ show: boolean }>`
     `linear-gradient(90deg, ${theme.darkTransparent} 0%, ${theme.secondary1_30} 50%, ${theme.darkTransparent} 100%);`};
   border: 1px solid rgba(188, 110, 0, 0.7);
   box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(98, 56, 0, 0.3);
-  border-radius: 8px;
+  border-radius: 10px;
   backdrop-filter: blur(4px) brightness(50%) saturate(150%);
   color: ${({ theme }) => theme.text1};
-  border-radius: 8px;
+  border-radius: 10px;
 `
 
 const ReferenceElement = styled.div`

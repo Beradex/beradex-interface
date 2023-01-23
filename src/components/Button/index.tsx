@@ -17,7 +17,7 @@ const Base = styled(RebassButton)<{
   width: ${({ width }) => (width ? width : '100%')};
   font-weight: 500;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 10px;
   border-radius: ${({ borderRadius }) => borderRadius && borderRadius};
   outline: none;
   border: 1px solid ${({ theme }) => theme.secondary1};
@@ -138,7 +138,7 @@ export const ButtonSecondary = styled(Base)`
   font-size: 1rem;
   font-family: 'Graphik';
   src: local(./public/fonts/Graphik.otf) format ('otf');
-  border-radius: 8px;
+  border-radius: 10px;
   padding: ${({ padding }) => (padding ? padding : '10px')};
 
   &:focus {

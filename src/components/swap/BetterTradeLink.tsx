@@ -18,7 +18,7 @@ const ResponsiveButton = styled(ButtonPrimary)`
   margin-left: 0.75rem;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 4px;
-    border-radius: 8px;
+    border-radius: 10px;
   `};
 `
 

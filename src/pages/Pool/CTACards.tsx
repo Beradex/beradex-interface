@@ -25,7 +25,7 @@ const CTA1 = styled(ExternalLink)`
     linear-gradient(to bottom, ${({ theme }) => theme.bg3} 1px, transparent 1px);
   background-color: ${({ theme }) => theme.bg2};
   padding: 32px;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -55,7 +55,7 @@ const CTA2 = styled(ExternalLink)`
   position: relative;
   overflow: hidden;
   padding: 32px;
-  border-radius: 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

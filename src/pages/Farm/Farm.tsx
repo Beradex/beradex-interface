@@ -52,7 +52,7 @@ const PositionInfo = styled(AutoColumn)<{ dim: any }>`
 `
 
 const BottomSection = styled(AutoColumn)`
-  border-radius: 8px;
+  border-radius: 10px;
   width: 100%;
   position: relative;
   ${Glow}
@@ -61,7 +61,7 @@ const BottomSection = styled(AutoColumn)`
 const StyledBottomCard = styled(DataCard)<{ dim: any }>`
   background: ${({ theme }) =>
     `linear-gradient(90deg, ${theme.darkTransparent} 0%, ${theme.secondary1_30} 50%, ${theme.darkTransparent} 100%);`};
-  border: 1px solid rgba(201, 114, 0, 0.3);
+  border: 1px solid rgba(163, 163, 163, 0.3);
   box-shadow: 0 0 5px rgba(201, 114, 0, 0), 0 0 7px rrgba(205, 113, 0, 0.3);
   opacity: ${({ dim }) => (dim ? 0.4 : 1)};
   //margin-top: -40px;
@@ -74,7 +74,7 @@ const VoteCard = styled(DataCard)`
   background: ${({ theme }) =>
     `linear-gradient(90deg, ${theme.darkTransparent} 0%, ${theme.secondary1_30} 35%, ${theme.darkTransparent} 100%);`};
   overflow: hidden;
-  border: 1px solid rgba(201, 114, 0, 0.3);
+  border: 1px solid rgba(163, 163, 163, 0.3);
   box-shadow: 0 0 5px rgba(201, 114, 0, 0), 0 0 7px rrgba(205, 113, 0, 0.3);
 `
 
