@@ -58,7 +58,7 @@ export const ButtonPrimary = styled(Base)`
   border: 1px solid ${({ theme }) => theme.primary1};
   color: white;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
+  src: local('Graphik'), url(./fonts/Graphik.otf) format ('opentype');
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     background-color: ${({ theme }) => darken(0.05, theme.primary1)};
