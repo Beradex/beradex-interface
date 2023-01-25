@@ -9,6 +9,10 @@ import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
   position: relative;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 8px;
 `
 
@@ -61,7 +65,7 @@ export const ErrorText = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
 `
 
 export const ErrorPill = styled(Text)<{ severity?: 0 | 1 | 2 | 3 | 4 }>`
-  border-radius: 10px;
+  border-radius: 20px;
 
   color: ${({ theme, severity }) =>
     severity === 3 || severity === 4
@@ -87,7 +91,7 @@ export const StyledBalanceMaxMini = styled.button`
   width: fit-content;
   background-color: ${({ theme }) => theme.bg1};
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 0;
   font-size: 0.875rem;
   font-weight: 400;

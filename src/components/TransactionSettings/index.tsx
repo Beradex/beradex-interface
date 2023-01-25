@@ -42,7 +42,7 @@ const Option = styled(FancyButton)<{ active: boolean }>`
   :hover {
     cursor: pointer;
   }
-  background: ${({ theme }) => `linear-gradient(264deg, ${theme.dark0} 0%, ${theme.secondary1_30} 100%)`};
+  background: ${({ theme }) => `linear-gradient(180deg, ${theme.dark0} 0%, ${theme.secondary1_30} 100%)`};
   color: ${({ active, theme }) => (active ? theme.primary1 : theme.text1)};
 `
 

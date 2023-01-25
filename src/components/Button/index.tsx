@@ -54,18 +54,18 @@ const Base = styled(RebassButton)<{
 
 export const ButtonPrimary = styled(Base)`
   background: ${({ theme }) =>
-    `linear-gradient(264deg, ${theme.secondary1_30} 0%, ${theme.darkTransparent} 33%),  ${theme.secondary1_30} 66%`};
+    `linear-gradient(180deg, ${theme.secondary1_30} 0%, ${theme.darkTransparent} 33%),  ${theme.secondary1_30} 66%`};
   border: 1px solid ${({ theme }) => theme.primary1};
   color: white;
   font-family: 'Graphik';
-  src: local(./public/fonts/Graphik.otf) format ('otf');
+  src: local('Graphik'), url(../../theme/fonts/Graphik.otf) format ('opentype');
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     background-color: ${({ theme }) => darken(0.05, theme.primary1)};
   }
   &:hover {
     background: ${({ theme }) =>
-      `linear-gradient(264deg, ${theme.primary1_30} 0%, ${theme.darkTransparent} 50%),  ${theme.primary1_30} 100%`};
+      `linear-gradient(180deg, ${theme.primary1_30} 0%, ${theme.darkTransparent} 50%),  ${theme.primary1_30} 100%`};
   }
   &:active {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};
@@ -86,7 +86,7 @@ export const ButtonPrimary = styled(Base)`
 
 export const ButtonLight = styled(Base)`
   background: transparent
-    linear-gradient(264deg, ${({ theme }) => theme.primary1_30} 0%, ${({ theme }) => theme.secondary1_30} 100%) 0% 0%
+    linear-gradient(180deg, ${({ theme }) => theme.primary1_30} 0%, ${({ theme }) => theme.secondary1_30} 100%) 0% 0%
     no-repeat padding-box;
   background-color: ${({ theme }) => theme.primary5};
   color: ${({ theme }) => theme.primaryText1};
@@ -137,7 +137,7 @@ export const ButtonSecondary = styled(Base)`
   background-color: transparent;
   font-size: 1rem;
   font-family: 'Graphik';
-  src: local(./public/fonts/Graphik.otf) format ('otf');
+  src: local('Graphik'), url(../../theme/fonts/Graphik.otf) format ('opentype');
   border-radius: 10px;
   padding: ${({ padding }) => (padding ? padding : '10px')};
 
@@ -189,7 +189,7 @@ export const ButtonUNIGradient = styled(ButtonPrimary)`
   padding: 4px 8px;
   height: 36px;
   font-family: 'Graphik';
-  src: local(./public/fonts/Graphik.otf) format ('otf');
+  src: local('Graphik'), url(../../theme/fonts/Graphik.otf) format ('opentype');
   font-weight: 500;
   background-color: ${({ theme }) => theme.bg3};
   background: radial-gradient(174.47% 188.91% at 1.84% 0%, #ff007a 0%, #2172e5 100%), #edeef2;
@@ -232,7 +232,7 @@ export const ButtonEmpty = styled(Base)`
   color: ${({ theme }) => theme.primary1};
   display: flex;
   font-family: 'Graphik';
-  src: local(./public/fonts/Grapik.otf) format ('otf');
+  src: url(./public/fonts/Graphik.otf) format ('opentype');
   justify-content: center;
   align-items: center;
 
@@ -311,7 +311,7 @@ const ButtonErrorStyle = styled(Base)`
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
   font-family: 'Graphik';
-  src: local(./public/fonts/Graphik.otf) format ('otf');
+  src: local('Graphik'), url(../../theme/fonts/Graphik.otf) format ('opentype');
 
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.red1)};

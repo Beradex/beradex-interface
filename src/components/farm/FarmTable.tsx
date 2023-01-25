@@ -130,7 +130,7 @@ const PoolRow = styled(Link)`
     border: 1px solid rgba(188, 110, 0, 0.7);
     box-shadow: 0 0 5px rgba(47, 27, 0, 0.1), 0 0 7px rgba(47, 27, 0, 0.1);
     background: linear-gradient(
-      264deg,
+      180deg,
       rgba(16, 16, 18, 0.1) 0%,
       rgba(154, 87, 0, 0.05) 25%,
       rgba(16, 16, 18, 0.1) 50%,

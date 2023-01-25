@@ -231,7 +231,7 @@ export const ThemedBackground = styled.div<{ backgroundColor?: string | undefine
 /* @supports (font-variation-settings: normal) {
   html, input, textarea, button {
     font-family: 'Silkscreen', sans-serif;
-    src: local(./public/fonts/VCR OSD Mono.ttf) format ('ttf');
+    src: url(./public/fonts/VCR OSD Mono.ttf) format ('ttf');
     text-transform: uppercase;
   }
 }
@@ -244,7 +244,7 @@ html, input, textarea, button {
 @supports (font-variation-settings: normal) {
   html, input, textarea, button {
     font-family: 'Graphik';
-    src: local(./public/fonts/Graphik.otf) format ('otf');
+    src: local('Graphik'), url(../../theme/fonts/Graphik.otf) format ('opentype');
     lineHeight: 1;
   }
 }
