@@ -74,7 +74,7 @@ const EmptyProposals = styled.div`
 `
 const Jar = styled.img`
   position: absolute;
-  height: 300px;
+  height: 200px;
   opacity: 1;
   z-index: -2;
   margin-top: -140px;
