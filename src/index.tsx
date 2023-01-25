@@ -31,11 +31,11 @@ if (!!window.ethereum) {
       method: 'wallet_addEthereumChain',
       params: [
         {
-          chainId: '0x09000', // beradex change to berachain mainnet
-          chainName: 'Bera Mainnet',
+          chainId: '0x2328', // beradex change to berachain mainnet
+          chainName: 'Evmos Testnet',
           nativeCurrency: {
-            name: 'ETH',
-            symbol: 'ETH',
+            name: 'EVMOS',
+            symbol: 'EVMOS',
             decimals: 18,
           },
           rpcUrls: ['https://eth.bd.evmos.dev:8545'], // BERA MAINNET
