@@ -238,7 +238,7 @@ export const ThemedBackground = styled.div<{ backgroundColor?: string | undefine
 */
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
-  font-family: 'Graphik', sans-serif, sans-serif;
+  font-family: 'Graphik', sans-serif;
   font-display: fallback;
 }
 @supports (font-variation-settings: normal) {

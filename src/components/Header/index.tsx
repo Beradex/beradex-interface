@@ -40,7 +40,7 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   align-items: center;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Graphik', sans-serif, sans-serif, sans-serif, sans-serif, sans-serif;
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-size: 1rem;
   flex-direction: row;
@@ -128,7 +128,7 @@ const HeaderLinks = styled(Row)`
   margin-left: 4%;
   width: fit-content;
   padding: 4px;
-  font-family: 'Graphik', sans-serif, sans-serif;
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-size: 1rem;
   border-radius: 10px;
@@ -144,7 +144,7 @@ const HeaderLinks = styled(Row)`
 const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
-  font-family: 'Graphik', sans-serif, sans-serif;
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-size: 1rem;
   align-items: center;
