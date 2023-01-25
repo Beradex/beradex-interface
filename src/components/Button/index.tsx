@@ -6,7 +6,6 @@ import { RowBetween } from '../Row'
 import { ChevronDown, Check } from 'react-feather'
 import { Button as RebassButton, ButtonProps } from 'rebass/styled-components'
 import useTheme from 'hooks/useTheme'
-import { Font } from 'fonts/fonts'
 
 const Base = styled(RebassButton)<{
   padding?: string
