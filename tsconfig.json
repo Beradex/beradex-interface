@@ -40,6 +40,7 @@
   "include": [
     "./src/**/*.ts",
     "./src/**/*.tsx",
+    "./src/theme/fonts/fonts.d.ts",
     "src/components/Confetti/index.js"
   ]
 }
