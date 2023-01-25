@@ -240,6 +240,7 @@ export const ThemedBackground = styled.div<{ backgroundColor?: string | undefine
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
   font-family: 'Graphik', sans-serif;
+  src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-display: fallback;
 }
 @supports (font-variation-settings: normal) {
