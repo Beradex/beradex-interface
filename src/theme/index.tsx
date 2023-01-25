@@ -9,7 +9,7 @@ import styled, {
 } from 'styled-components'
 import { useIsDarkMode } from '../state/user/hooks'
 import { Colors } from './styled'
-import '../theme/fonts/Graphik.otf'
+import '../fonts/Graphik.otf'
 export * from './components'
 
 export const MEDIA_WIDTHS = {
