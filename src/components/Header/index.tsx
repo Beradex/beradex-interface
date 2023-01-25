@@ -40,7 +40,7 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   align-items: center;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif, sans-serif, sans-serif, sans-serif, sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-size: 1rem;
   flex-direction: row;
@@ -128,7 +128,7 @@ const HeaderLinks = styled(Row)`
   margin-left: 4%;
   width: fit-content;
   padding: 4px;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif, sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-size: 1rem;
   border-radius: 10px;
@@ -144,7 +144,7 @@ const HeaderLinks = styled(Row)`
 const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif, sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-size: 1rem;
   align-items: center;
@@ -176,7 +176,7 @@ const HideLarge = styled.span`
 
 const NetworkCard = styled(YellowCard)`
   border-radius: 10px;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   padding: 8px 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -224,7 +224,7 @@ const StyledNavLink = styled(NavLink).attrs({
   font-size: 1rem;
   width: fit-content;
   font-weight: 500;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   padding: 8px 12px;
 
@@ -251,7 +251,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   text-decoration: none;
   color: ${({ theme }) => theme.text3};
   font-size: 1rem;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   width: fit-content;
   margin: 0 12px;

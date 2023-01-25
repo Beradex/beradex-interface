@@ -6,6 +6,7 @@ import { RowBetween } from '../Row'
 import { ChevronDown, Check } from 'react-feather'
 import { Button as RebassButton, ButtonProps } from 'rebass/styled-components'
 import useTheme from 'hooks/useTheme'
+import { Font } from 'fonts/fonts'
 
 const Base = styled(RebassButton)<{
   padding?: string
@@ -57,7 +58,7 @@ export const ButtonPrimary = styled(Base)`
     `linear-gradient(180deg, ${theme.secondary1_30} 0%, ${theme.darkTransparent} 33%),  ${theme.secondary1_30} 66%`};
   border: 1px solid ${({ theme }) => theme.primary1};
   color: white;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
@@ -136,7 +137,7 @@ export const ButtonSecondary = styled(Base)`
   color: ${({ theme }) => theme.white};
   background-color: transparent;
   font-size: 1rem;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   border-radius: 10px;
   padding: ${({ padding }) => (padding ? padding : '10px')};
@@ -188,7 +189,7 @@ export const ButtonUNIGradient = styled(ButtonPrimary)`
   color: white;
   padding: 4px 8px;
   height: 36px;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
   font-weight: 500;
   background-color: ${({ theme }) => theme.bg3};
@@ -231,7 +232,7 @@ export const ButtonEmpty = styled(Base)`
   background-color: transparent;
   color: ${({ theme }) => theme.primary1};
   display: flex;
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: url(./public/fonts/Graphik.otf) format ('opentype');
   justify-content: center;
   align-items: center;
@@ -310,7 +311,7 @@ const ButtonConfirmedStyle = styled(Base)`
 const ButtonErrorStyle = styled(Base)`
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
 
   &:focus {
