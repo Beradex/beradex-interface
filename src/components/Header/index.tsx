@@ -41,7 +41,7 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   justify-content: space-between;
   align-items: center;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
+  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
   font-size: 1rem;
   flex-direction: row;
   width: 100%;
@@ -129,7 +129,7 @@ const HeaderLinks = styled(Row)`
   width: fit-content;
   padding: 4px;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
+  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
   font-size: 1rem;
   border-radius: 10px;
   display: grid;
@@ -145,7 +145,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
+  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
   font-size: 1rem;
   align-items: center;
   background: ${({ theme }) =>
@@ -177,7 +177,7 @@ const HideLarge = styled.span`
 const NetworkCard = styled(YellowCard)`
   border-radius: 10px;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
+  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
   padding: 8px 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     margin: 0;
@@ -225,7 +225,7 @@ const StyledNavLink = styled(NavLink).attrs({
   width: fit-content;
   font-weight: 500;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
+  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
   padding: 8px 12px;
 
   &.${activeClassName} {
@@ -252,7 +252,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   color: ${({ theme }) => theme.text3};
   font-size: 1rem;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
+  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
   width: fit-content;
   margin: 0 12px;
   font-weight: 500;
