@@ -137,7 +137,7 @@ export const ButtonSecondary = styled(Base)`
   background-color: transparent;
   font-size: 1rem;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
+  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
   border-radius: 10px;
   padding: ${({ padding }) => (padding ? padding : '10px')};
 
@@ -189,7 +189,7 @@ export const ButtonUNIGradient = styled(ButtonPrimary)`
   padding: 4px 8px;
   height: 36px;
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
+  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
   font-weight: 500;
   background-color: ${({ theme }) => theme.bg3};
   background: radial-gradient(174.47% 188.91% at 1.84% 0%, #ff007a 0%, #2172e5 100%), #edeef2;
@@ -311,7 +311,7 @@ const ButtonErrorStyle = styled(Base)`
   background-color: ${({ theme }) => theme.red1};
   border: 1px solid ${({ theme }) => theme.red1};
   font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url(./theme/fonts/Graphik.otf) format ('opentype');
+  src: local('Graphik'), url('./theme/fonts/Graphik.otf') format ('opentype');
 
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.red1)};
