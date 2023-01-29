@@ -3,7 +3,7 @@ import { Pair } from '@uniswap/v2-sdk'
 import JSBI from 'jsbi'
 import { useMemo } from 'react'
 import {
-  tTOKEN,
+  BRDX,
   // ATOM, OSMOSIS
 } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks/web3'
@@ -48,6 +48,16 @@ export const STAKING_REWARDS_INFO: {
     // },
   ],
   [ChainId.TESTNET]: [
+    // {
+    //   tokens: [
+    //     new Token(ChainId.TESTNET, '0xdBF7a4AAD29BCD3624Cba36Bb271427DCF2a64B1', 18),
+    //     new Token(ChainId.TESTNET, '0xFDA1AB2055292c59DA08b903894341920aF8fB64', 18),
+    //   ],
+    //   poolIndex: 0,
+    //   isActive: true,
+    // },
+  ],
+  [ChainId.HARDHAT]: [
     // {
     //   tokens: [
     //     new Token(ChainId.TESTNET, '0xdBF7a4AAD29BCD3624Cba36Bb271427DCF2a64B1', 18),
@@ -111,7 +121,7 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
     [chainId, pairToFilterBy]
   )
 
-  const uni = chainId ? tTOKEN[chainId] : undefined
+  const uni = chainId ? BRDX[chainId] : undefined
 
   const rewardsAddresses = useMemo(() => info.map(({ stakingRewardAddress }) => stakingRewardAddress), [info])
 
@@ -246,7 +256,7 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
 
 export function useTotalUniEarned(): CurrencyAmount<Token> | undefined {
   const { chainId } = useActiveWeb3React()
-  const uni = chainId ? tTOKEN[chainId] : undefined
+  const uni = chainId ? BRDX[chainId] : undefined
   const stakingInfos = useStakingInfo()
 
   return useMemo(() => {

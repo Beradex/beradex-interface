@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useMemo, useState } from 'react'
 
 // import { CurrencyAmount, Token } from 'sdk-core/entities'
 
@@ -16,6 +16,7 @@ import {
   MinichefRawPoolInfo,
   useCalculateAPR,
   useFarmTVL,
+  useOwnWeeklyEmission,
   usePairTokens,
   usePools,
   useRewardInfos,
@@ -23,10 +24,12 @@ import {
 
 import styled from 'styled-components'
 import { Tux } from '../../components/farm/TuxBanner'
-import { FarmHeading } from '../../components/farm/FarmHeading'
-import { HRDark } from '../../components/HR/HR'
+
 import { CurrencyAmount } from 'sdk-core/entities'
 import { useUSDCValue } from 'hooks/useUSDCPrice'
+import { HeadingWithPotion } from 'components/Heading/HeadingWithPotion'
+import { useTotalSupply } from 'hooks/useTotalSupply'
+import { PoolListPagination } from './FarmPagination'
 
 const FarmListContainer = styled.div`
   max-width: 1080px;
@@ -34,28 +37,41 @@ const FarmListContainer = styled.div`
 `
 
 export function FarmListPage() {
-  const pools = usePools()
+  const { pools, pageCount, setPage, page } = usePaginatedPools()
 
   return (
     <FarmListContainer>
-      <Tux />
-      <FarmHeading />
+      <HeadingWithPotion heading="Farm" description="Earn fees and rewards by depositing and staking your LP tokens." />
       {/* {pools.map((pool) => pool.lpTokenAddress && <Pool key={pool.lpTokenAddress} {...pool} />).filter(isTruthy)} */}
+
+      <PoolListPagination pageCount={pageCount} setPage={setPage} currentPage={page} />
       <FarmTable>
         {pools.map((pool) => (
-          <Fragment key={pool.poolId}>
-            <HRDark />
-            <PoolRow {...pool} />
-          </Fragment>
+          <PoolRow {...pool} key={pool.poolId} />
         ))}
       </FarmTable>
     </FarmListContainer>
   )
 }
 
-type PoolProps = MinichefRawPoolInfo
+const PAGE_LENGTH = 10
 
-function PoolRow({
+function usePaginatedPools() {
+  const [page, setPage] = useState(0)
+  const { pools, poolLength } = usePools(page, PAGE_LENGTH)
+  const pageCount = useMemo(() => Math.ceil(poolLength / PAGE_LENGTH), [poolLength])
+
+  return {
+    pools,
+    page,
+    pageCount,
+    setPage,
+  }
+}
+
+export type PoolProps = MinichefRawPoolInfo
+
+export function PoolRow({
   lpTokenAddress,
   poolId,
   // pendingAmount,
@@ -72,23 +88,36 @@ function PoolRow({
   const totalAPR = JSBI.add(primaryAPR || JSBI.BigInt(0), secondaryAPR || JSBI.BigInt(0))
 
   const stakedAmount = lpToken ? CurrencyAmount.fromRawAmount(lpToken, stakedRawAmount || 0) : undefined
+  const totalPoolTokens = useTotalSupply(lpToken ?? undefined)
 
-  const [token0Deposited, token1Deposited] =
-    !!pair &&
-    !!totalPoolStaked &&
-    !!stakedAmount &&
-    // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolStaked.quotient, stakedAmount.quotient)
-      ? [
-          pair.getLiquidityValue(pair.token0, totalPoolStaked, stakedAmount, false),
-          pair.getLiquidityValue(pair.token1, totalPoolStaked, stakedAmount, false),
-        ]
-      : [undefined, undefined]
+  const [token0Deposited, token1Deposited] = useMemo(
+    () =>
+      !!pair &&
+      !!totalPoolTokens &&
+      !!stakedAmount &&
+      // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
+      JSBI.greaterThanOrEqual(totalPoolTokens.quotient, stakedAmount.quotient)
+        ? [
+            pair.getLiquidityValue(pair.token0, totalPoolTokens, stakedAmount, false),
+            pair.getLiquidityValue(pair.token1, totalPoolTokens, stakedAmount, false),
+          ]
+        : [undefined, undefined],
+    [pair, totalPoolTokens, stakedAmount]
+  )
 
   const token0Value = useUSDCValue(token0Deposited)
   const token1Value = useUSDCValue(token1Deposited)
 
-  const positionValue = token0Value?.multiply(2) || token1Value?.multiply(2)
+  const positionValue = useMemo(() => token0Value?.multiply(2) || token1Value?.multiply(2), [token0Value, token1Value])
+  const ownPrimaryWeeklyEmission = useOwnWeeklyEmission(poolEmissionAmount, stakedAmount, totalPoolStaked)
+  const ownSecondaryWeeklyEmission = useOwnWeeklyEmission(rewardPerSecondAmount, stakedAmount, totalPoolStaked)
+
+  const isActive =
+    positionValue?.greaterThan(0) || poolEmissionAmount?.greaterThan(0) || rewardPerSecondAmount?.greaterThan(0)
+
+  if (!isActive) {
+    return null
+  }
 
   return (
     <>
@@ -99,6 +128,8 @@ function PoolRow({
         totalLPStaked={totalPoolStaked}
         primaryEmissionPerSecond={poolEmissionAmount}
         secondaryEmissionPerSecond={rewardPerSecondAmount}
+        ownPrimaryWeeklyEmission={ownPrimaryWeeklyEmission}
+        ownSecondaryWeeklyEmission={ownSecondaryWeeklyEmission}
         totalAPR={totalAPR}
         positionValue={positionValue}
       />

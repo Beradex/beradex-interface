@@ -16,7 +16,7 @@ import { ButtonPrimary, ButtonEmpty } from '../../components/Button'
 import StakingModal from '../../components/farm/StakingModal'
 import { useStakingInfo } from '../../state/stake/hooks'
 import UnstakingModal from '../../components/farm/UnstakingModal'
-import ClaimRewardModal from '../../components/farm/ClaimRewardModal'
+//import ClaimRewardModal from '../../components/farm/ClaimRewardModal'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { useColor } from '../../hooks/useColor'
@@ -109,7 +109,7 @@ export default function Manage({
   // toggle for staking modal and unstaking modal
   const [showStakingModal, setShowStakingModal] = useState(false)
   const [showUnstakingModal, setShowUnstakingModal] = useState(false)
-  const [showClaimRewardModal, setShowClaimRewardModal] = useState(false)
+  // const [showClaimRewardModal, setShowClaimRewardModal] = useState(false)
 
   // fade cards if nothing staked or nothing earned yet
   const disableTop = true // !stakingInfo?.stakedAmount || stakingInfo.stakedAmount.equalTo(JSBI.BigInt(0))
@@ -182,7 +182,7 @@ export default function Manage({
                     ?.multiply(BIG_INT_SECONDS_IN_WEEK)
                     ?.toFixed(0, { groupSeparator: ',' }) ?? '-'
                 : '0'}
-              {' UNI / week'}
+              {' BRDX / week'}
             </TYPE.body>
           </AutoColumn>
         </PoolData>
@@ -254,7 +254,7 @@ export default function Manage({
                     {stakingInfo?.stakedAmount?.toSignificant(6) ?? '-'}
                   </TYPE.white>
                   <TYPE.white>
-                    BRTR-LP {currencyA?.symbol}-{currencyB?.symbol}
+                    BLP {currencyA?.symbol}-{currencyB?.symbol}
                   </TYPE.white>
                 </RowBetween>
               </AutoColumn>
@@ -266,14 +266,14 @@ export default function Manage({
             <AutoColumn gap="sm">
               <RowBetween>
                 <div>
-                  <TYPE.black>Your unclaimed UNI</TYPE.black>
+                  <TYPE.black>Your unclaimed BRDX</TYPE.black>
                 </div>
                 {stakingInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, stakingInfo?.earnedAmount?.quotient) && (
                   <ButtonEmpty
                     padding="8px"
                     borderRadius="8px"
                     width="fit-content"
-                    onClick={() => setShowClaimRewardModal(true)}
+                    // onClick={() => setShowClaimRewardModal(true)}
                   >
                     Claim
                   </ButtonEmpty>
@@ -300,7 +300,7 @@ export default function Manage({
                         ?.multiply(BIG_INT_SECONDS_IN_WEEK)
                         ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'
                     : '0'}
-                  {' UNI / week'}
+                  {' BRDX / week'}
                 </TYPE.black>
               </RowBetween>
             </AutoColumn>
@@ -310,7 +310,7 @@ export default function Manage({
           <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
             ⭐️
           </span>
-          When you withdraw, the contract will automagically claim UNI on your behalf!
+          When you withdraw, the contract will automagically claim BRDX on your behalf!
         </TYPE.main>
 
         {!showAddLiquidityButton && (

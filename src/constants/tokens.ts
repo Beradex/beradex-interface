@@ -1,8 +1,7 @@
 import { Token } from '@uniswap/sdk-core'
 import { WETH, Ether } from './native-token'
 import { ChainId } from 'constants/chains'
-import { TESTNET } from './periphery'
-/* import { MAINNET, TESTNET } from './periphery' */
+import { HARDHAT, MAINNET, TESTNET } from './periphery'
 
 export { WETH, Ether }
 
@@ -21,6 +20,7 @@ export const ETHER = Ether.onChain(ChainId.MAINNET)
 export const HONEY = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0x7a721f5330f0d3079EbDf77da01771cEf9B97ae7', 18, 'HONEY', 'HONEY'),
   [ChainId.TESTNET]: new Token(ChainId.TESTNET, '0x7a721f5330f0d3079EbDf77da01771cEf9B97ae7', 18, 'tHONEY', 'tHONEY'),
+  [ChainId.HARDHAT]: new Token(ChainId.HARDHAT, '0x7a721f5330f0d3079EbDf77da01771cEf9B97ae7', 18, 'tHONEY', 'tHONEY'),
 }
 
 export const ETH = {
@@ -39,33 +39,28 @@ export const USDC = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0x398E4948e373Db819606A459456176D31C3B1F91', 6, 'USDC', 'USDC Coin'),
   [ChainId.TESTNET]: new Token(ChainId.TESTNET, TESTNET.testUSDC, 18, 'tUSDC', 'Test USD'),
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, '0xB2E91f27a9766bFD925D66D88B78D2cE64a846b6', 18, 'MUSDC', 'Mock USDC'),
+  [ChainId.HARDHAT]: new Token(ChainId.HARDHAT, HARDHAT.testUSDC, 18, 'MUSDC', 'Mock USDC'),
 }
 
 /**
  * ------------ IBC Tokens
  */
 
-export const tTOKEN = makeToken('tTOKEN', 'tTOKEN', 18, {
-  [ChainId.MAINNET]: '0x13Cf938Dd391B5b4f312cf85DeAFEca3d16Ee73B',
-  [ChainId.TESTNET]: TESTNET.diffusion || '0x067eC87844fBD73eDa4a1059F30039584586e09d',
+export const BRDX = makeToken('BRDX', 'BRDX', 18, {
+  [ChainId.MAINNET]: '0x62a4256536eA5E17E5c3F489eA68F27d2A64eb81',
+  [ChainId.TESTNET]: TESTNET.diffusion || '0x4FA01eceE1A9a6293C53cA943C280448D694BB7B',
   // Minichef Main Reward
   [ChainId.RINKEBY]: '0x655dfdd82cb10dc7fb931fd85d69887756b922fd',
+  [ChainId.HARDHAT]: HARDHAT.diffusion || '0x13Cf938Dd391B5b4f312cf85DeAFEca3d16Ee73B',
 })
 
-export const XDIFF = makeToken('XDIFF', 'XDIFF', 18, {
-  [ChainId.MAINNET]: '0x3f75ceabCDfed1aCa03257Dc6Bdc0408E2b4b026',
-  [ChainId.TESTNET]: TESTNET.diffusion || '0x067eC87844fBD73eDa4a1059F30039584586e09d',
-  // Minichef Main Reward
-  [ChainId.RINKEBY]: '0x655dfdd82cb10dc7fb931fd85d69887756b922fd',
+export const XBRDX = makeToken('xBRDX', 'XBRDX', 18, {
+  [ChainId.MAINNET]: MAINNET.diffusionbar,
+  [ChainId.TESTNET]: TESTNET.diffusionbar,
+  [ChainId.RINKEBY]: '',
+  [ChainId.HARDHAT]: HARDHAT.diffusionbar,
 })
 /*
-export const BERA = makeToken('BERA', 'BERA', 9, {
-  //@TODO: FIX MAINNET
-  [ChainId.MAINNET]: '',
-  [ChainId.TESTNET]: TESTNET.testBERA,
-  [ChainId.RINKEBY]: '',
-})
-
 export const XDIFFUSION = makeToken('xDiffusion', 'XDIFF', 18, {
   [ChainId.MAINNET]: MAINNET.diffusionbar,
   [ChainId.TESTNET]: TESTNET.diffusionbar,
@@ -77,5 +72,6 @@ function makeToken(name: string, symbol: string, decimals: number, addresses: Re
     [ChainId.MAINNET]: new Token(ChainId.MAINNET, addresses[ChainId.MAINNET], decimals, symbol, name),
     [ChainId.TESTNET]: new Token(ChainId.TESTNET, addresses[ChainId.TESTNET], decimals, `${symbol}`, `Test ${name}`),
     [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, addresses[ChainId.TESTNET], decimals, `M${symbol}`, `Mock ${name}`),
+    [ChainId.HARDHAT]: new Token(ChainId.HARDHAT, addresses[ChainId.HARDHAT], decimals, `${symbol}`, `Test ${name}`),
   }
 }

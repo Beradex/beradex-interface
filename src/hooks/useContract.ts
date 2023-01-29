@@ -26,7 +26,7 @@ import { abi as AIRDROP_ABI } from 'abis/Airdrop.json'
 import { abi as DIFFUSION_BAR_ABI } from 'abis/DiffusionBar.json'
 
 import { ChainId } from 'constants/chains'
-import { WETH, tTOKEN } from 'constants/tokens'
+import { WETH, BRDX } from 'constants/tokens'
 
 import {
   NONFUNGIBLE_POSITION_MANAGER_ADDRESSES,
@@ -152,7 +152,7 @@ export function useGovernanceContract() {
 
 export function useUniContract() {
   const { chainId } = useActiveWeb3React()
-  return useContract(chainId ? tTOKEN[chainId]?.address : undefined, UNI_ABI, true)
+  return useContract(chainId ? BRDX[chainId]?.address : undefined, UNI_ABI, true)
 }
 
 export function useAirdropContract() {

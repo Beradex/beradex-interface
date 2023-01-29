@@ -14,6 +14,11 @@ export const COMMON_CONTRACT_NAMES: { [chainId in ChainId]?: { [address: string]
     // [GOVERNANCE_ADDRESS[ChainId.TESTNET]]: 'Rinkeby Governance',
     // [TIMELOCK_ADDRESS[ChainId.TESTNET]]: 'Rinkeby Timelock',
   },
+  [ChainId.HARDHAT]: {
+    // [UNI_ADDRESS[ChainId.TESTNET]]: 'Rinkeby UNI',
+    // [GOVERNANCE_ADDRESS[ChainId.TESTNET]]: 'Rinkeby Governance',
+    // [TIMELOCK_ADDRESS[ChainId.TESTNET]]: 'Rinkeby Timelock',
+  },
 }
 
 export const DEFAULT_AVERAGE_BLOCK_TIME_IN_SECS = 5

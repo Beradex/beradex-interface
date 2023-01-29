@@ -9,7 +9,7 @@ const TuxBanner = styled.img`
   width: 100%;
   object-fit: cover;
   object-position: 0% 20%;
-  margin-top: -10%;
+  margin-top: -7%;
   margin-bottom: 1%;
   border: 1px solid rgba(204, 123, 1, 0.6);
   box-shadow: 0 0 20px rgba(47, 27, 0, 0.1), 0 0 40px rgba(98, 56, 0, 0.3);

@@ -31,15 +31,15 @@ if (!!window.ethereum) {
       method: 'wallet_addEthereumChain',
       params: [
         {
-          chainId: '0x2328', // beradex change to berachain mainnet
-          chainName: 'Evmos Testnet',
+          chainId: '0x66EED', // beradex change to berachain mainnet
+          chainName: 'Arbitrum Testnet',
           nativeCurrency: {
-            name: 'EVMOS',
-            symbol: 'EVMOS',
+            name: 'ETH',
+            symbol: 'ETH',
             decimals: 18,
           },
-          rpcUrls: ['https://eth.bd.evmos.dev:8545'], // BERA MAINNET
-          blockExplorerUrls: ['https://evm.evmos.dev'], // BERA MAINNET
+          rpcUrls: ['https://goerli-rollup.arbitrum.io/rpc'], // beradex: update RPC
+          blockExplorerUrls: ['https://goerli.arbiscan.io/'], // BERA MAINNET
         },
       ],
     })

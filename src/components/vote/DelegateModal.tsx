@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { tTOKEN } from '../../constants/tokens'
+import { BRDX } from '../../constants/tokens'
 
 import Modal from '../Modal'
 import { AutoColumn } from '../Column'
@@ -56,7 +56,7 @@ export default function DelegateModal({ isOpen, onDismiss, title }: VoteModalPro
   const { address: parsedAddress } = useENS(activeDelegate)
 
   // get the number of votes available to delegate
-  const uniBalance = useTokenBalance(account ?? undefined, chainId ? tTOKEN[chainId] : undefined)
+  const uniBalance = useTokenBalance(account ?? undefined, chainId ? BRDX[chainId] : undefined)
 
   const delegateCallback = useDelegateCallback()
 

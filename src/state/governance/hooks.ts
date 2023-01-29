@@ -1,7 +1,7 @@
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { isAddress } from 'ethers/lib/utils'
 import { PROPOSAL_DESCRIPTION_TEXT } from '../../constants/proposals'
-import { tTOKEN } from '../../constants/tokens'
+import { BRDX } from '../../constants/tokens'
 import { useGovernanceContract, useUniContract } from '../../hooks/useContract'
 import { calculateGasMargin } from '../../utils/calculateGasMargin'
 import { useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'
@@ -171,7 +171,7 @@ export function useUserVotes(): CurrencyAmount<Token> | undefined {
   const uniContract = useUniContract()
 
   // check for available votes
-  const uni = chainId ? tTOKEN[chainId] : undefined
+  const uni = chainId ? BRDX[chainId] : undefined
   const votes = useSingleCallResult(uniContract, 'getCurrentVotes', [account ?? undefined])?.result?.[0]
   return votes && uni ? CurrencyAmount.fromRawAmount(uni, votes) : undefined
 }
@@ -182,7 +182,7 @@ export function useUserVotesAsOfBlock(block: number | undefined): CurrencyAmount
   const uniContract = useUniContract()
 
   // check for available votes
-  const uni = chainId ? tTOKEN[chainId] : undefined
+  const uni = chainId ? BRDX[chainId] : undefined
   const votes = useSingleCallResult(uniContract, 'getPriorVotes', [account ?? undefined, block ?? undefined])
     ?.result?.[0]
   return votes && uni ? CurrencyAmount.fromRawAmount(uni, votes) : undefined

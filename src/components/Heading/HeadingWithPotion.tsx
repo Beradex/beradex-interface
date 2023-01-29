@@ -2,13 +2,15 @@ import React from 'react'
 import styled, { DefaultTheme } from 'styled-components'
 import { PotionIcon2 } from '../Potions/Potions'
 
-const FarmHeadingContainer = styled.div`
+type HeadingProps = { heading: string; description: string }
+
+const HeadingContainer = styled.div`
   max-width: 1080px;
   width: 100%;
-  margin-top: -5%;
+  margin-top: 1%;
   //margin-bottom: 2%;
 
-  padding: 10px;
+  padding: 20px;
 `
 
 const HeadingText = styled.h1`
@@ -28,15 +30,15 @@ const DescriptionText = styled.p`
   margin-bottom: 2%;
 `
 
-export const FarmHeading = () => {
+export const HeadingWithPotion = ({ heading, description }: HeadingProps) => {
   return (
-    <FarmHeadingContainer>
+    <HeadingContainer>
       <HeaderTextLine>
         <PotionIcon2 width={60} height={60} />
-        <HeadingText>Farm</HeadingText>
+        <HeadingText>{heading}</HeadingText>
       </HeaderTextLine>
-      <DescriptionText>Earn fees and rewards by depositing and staking your LP tokens.</DescriptionText>
+      <DescriptionText>{description}</DescriptionText>
       {/*<HR />*/}
-    </FarmHeadingContainer>
+    </HeadingContainer>
   )
 }

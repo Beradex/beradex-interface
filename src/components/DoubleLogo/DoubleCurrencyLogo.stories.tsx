@@ -12,7 +12,7 @@ const Template: Story<DoubleCurrencyLogoProps> = (args) => <Component {...args} 
 
 export const DoubleCurrencyLogo = Template.bind({})
 DoubleCurrencyLogo.args = {
-  currency0: HONEY[9000],
-  currency1: USDC[9000],
+  currency0: HONEY[421613], //beradex: switch to mainnet
+  currency1: USDC[421613], //beradex: switch to mainnet
   size: 220,
 }

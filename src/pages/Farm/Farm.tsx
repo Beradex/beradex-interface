@@ -38,6 +38,8 @@ import { HRDark } from '../../components/HR/HR'
 import { useUSDCValue } from 'hooks/useUSDCPrice'
 import { FarmYield } from 'components/farm/FarmYield'
 import { Glow } from '../AppBody'
+import { unwrappedToken } from 'utils/wrappedCurrency'
+import { useTotalSupply } from 'hooks/useTotalSupply'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -84,6 +86,33 @@ const Heading = styled.div`
   justify-content: center;
 `
 
+const PageHeading = styled(TYPE.largeHeader)`
+  display: flex;
+  margin: 0;
+  gap: 5px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    flex-direction: column;
+    align-items: center;
+  `};
+`
+
+const YourDepositsHeading = styled(RowBetween)`
+  align-items: baseline;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    flex-direction: column;
+    align-items: center;
+  `};
+`
+
+const YourDeposits = styled(RowBetween)`
+  align-items: baseline;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+  `};
+`
+
 export default function Manage({ match: { params } }: RouteComponentProps<{ poolId?: string }>) {
   const { account } = useActiveWeb3React()
 
@@ -94,6 +123,10 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
   const { token0, token1, availableLPAmount, lpToken, totalPoolStaked, pair } = usePairTokens(lpTokenAddress)
   const { pendingAmount: pendingRewardAmount, rewardPerSecondAmount } = useRewardInfos(poolId, rewarderAddress)
   const stakedAmount = lpToken ? CurrencyAmount.fromRawAmount(lpToken, stakedRawAmount || 0) : undefined
+  const totalPoolTokens = useTotalSupply(lpToken ?? undefined)
+
+  const currency0 = token0 ? unwrappedToken(token0) : token0
+  const currency1 = token1 ? unwrappedToken(token1) : token1
 
   const ownPrimaryWeeklyEmission = useOwnWeeklyEmission(poolEmissionAmount, stakedAmount, totalPoolStaked)
 
@@ -116,13 +149,13 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
 
   const [token0Deposited, token1Deposited] =
     !!pair &&
-    !!totalPoolStaked &&
+    !!totalPoolTokens &&
     !!stakedAmount &&
     // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolStaked.quotient, stakedAmount.quotient)
+    JSBI.greaterThanOrEqual(totalPoolTokens.quotient, stakedAmount.quotient)
       ? [
-          pair.getLiquidityValue(pair.token0, totalPoolStaked, stakedAmount, false),
-          pair.getLiquidityValue(pair.token1, totalPoolStaked, stakedAmount, false),
+          pair.getLiquidityValue(pair.token0, totalPoolTokens, stakedAmount, false),
+          pair.getLiquidityValue(pair.token1, totalPoolTokens, stakedAmount, false),
         ]
       : [undefined, undefined]
 
@@ -151,19 +184,28 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
       tokens: [token0, token1] as [Token, Token],
       stakedAmount: stakedAmount!,
       earnedAmount: pendingAmount!,
+      earnedAmountSecondary: pendingRewardAmount!,
       lpTokenAddress,
     }
-  }, [lpTokenAddress, pendingAmount, poolId, stakedAmount, token0, token1])
+  }, [lpTokenAddress, pendingAmount, poolId, stakedAmount, pendingRewardAmount, token0, token1])
   return (
     <PageWrapper gap="lg" justify="center">
       <AutoRow justify={'space-between'}>
         <Heading>
           <PotionIcon4 width={60} height={60} />
-          <TYPE.largeHeader style={{ margin: 0 }}>
-            {token0?.symbol}-{token1?.symbol} Liquidity Mining
-          </TYPE.largeHeader>
+          <PageHeading>
+            <span>
+              {currency0?.symbol}-{currency1?.symbol}
+            </span>
+            <span>Liquidity Mining</span>
+          </PageHeading>
         </Heading>
-        <DoubleCurrencyLogo currency0={token1 ?? undefined} currency1={token0 ?? undefined} size={48} margin={true} />
+        <DoubleCurrencyLogo
+          currency0={currency0 ?? undefined}
+          currency1={currency1 ?? undefined}
+          size={48}
+          margin={true}
+        />
       </AutoRow>
       {NOMAD_POOLS.includes(poolId)}
 
@@ -183,11 +225,11 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={600}>Step 1. Get beraDEX Liquidity tokens</TYPE.white>
+                <TYPE.white fontWeight={600}>Step 1. Get Beradex Liquidity tokens</TYPE.white>
               </RowBetween>
               <RowBetween style={{ marginBottom: '1rem' }}>
                 <TYPE.white fontSize={14}>
-                  {`beraDEX LP tokens are required. Once you've added liquidity to the ${token0?.symbol}-${token1?.symbol} pool you can stake your liquidity tokens on this page.`}
+                  {`Beradex LP tokens are required. Once you've added liquidity to the ${token0?.symbol}-${token1?.symbol} pool you can stake your liquidity tokens on this page.`}
                 </TYPE.white>
               </RowBetween>
               <ButtonPrimary
@@ -197,7 +239,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
                 as={Link}
                 to={`/add/v2/${token0 && currencyId(token0)}/${token1 && currencyId(token1)}`}
               >
-                {`Add ${token0?.symbol}-${token1?.symbol} liquidity`}
+                {`Add ${currency0?.symbol}-${currency1?.symbol} liquidity`}
               </ButtonPrimary>
             </AutoColumn>
           </CardSection>
@@ -234,17 +276,17 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
             {/*<CardBGImage desaturate />*/}
             <CardNoise />
             <AutoColumn gap="md">
-              <RowBetween>
+              <YourDepositsHeading>
                 <TYPE.white fontWeight={600}>Your liquidity deposits</TYPE.white>
-              </RowBetween>
-              <RowBetween style={{ alignItems: 'baseline' }}>
+              </YourDepositsHeading>
+              <YourDeposits>
                 <TYPE.white fontSize={36} fontWeight={600}>
                   {stakingInfo?.stakedAmount?.toSignificant(6) ?? '-'}
                 </TYPE.white>
                 <TYPE.white>
-                  BRTR-LP {token0?.symbol}-{token1?.symbol}
+                  BLP {currency0?.symbol}-{currency1?.symbol}
                 </TYPE.white>
-              </RowBetween>
+              </YourDeposits>
               <RowBetween style={{ alignItems: 'baseline' }}>
                 <TYPE.white>Underlying {token0Deposited?.currency.symbol}</TYPE.white>
                 <TYPE.white>
@@ -283,7 +325,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
               }
             />
             <HRDark />
-            {rewardPerSecondAmount && (
+            {rewardPerSecondAmount && rewardPerSecondAmount.greaterThan(0) && (
               <RewardRow
                 pendingAmount={pendingRewardAmount ?? undefined}
                 ownWeeklyEmission={ownSecondaryWeeklyEmission}
@@ -303,7 +345,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
           <DataButtonRow style={{ marginBottom: '1rem' }}>
             {stakingInfo && !isNomad && (
               <ButtonPrimary padding="8px" borderRadius="8px" width="360px" onClick={handleDepositClick}>
-                {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit beraDEX LP Tokens'}
+                {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit Beradex LP Tokens'}
               </ButtonPrimary>
             )}
 
@@ -322,7 +364,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
           </DataButtonRow>
         )}
         {!userLiquidityUnstaked || userLiquidityUnstaked.equalTo('0') ? null : (
-          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} beraDEX LP tokens available</TYPE.main>
+          <TYPE.main>{userLiquidityUnstaked.toSignificant(6)} Beradex LP tokens available</TYPE.main>
         )}
       </PositionInfo>
     </PageWrapper>

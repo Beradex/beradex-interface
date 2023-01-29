@@ -43,6 +43,7 @@ const PERMITTABLE_TOKENS: {
     // [UNI[ChainId.TESTNET].address]: { type: PermitType.AMOUNT, name: 'Uniswap' },
   },
   [ChainId.RINKEBY]: {},
+  [ChainId.HARDHAT]: {},
 }
 
 export enum UseERC20PermitState {

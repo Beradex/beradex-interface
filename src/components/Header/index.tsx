@@ -304,9 +304,10 @@ export const StyledMenuButton = styled.button`
 `
 
 const NETWORK_LABELS: Record<ChainId, string> = {
-  [ChainId.TESTNET]: 'Evmos Testnet',
-  [ChainId.MAINNET]: 'Hardhat',
+  [ChainId.TESTNET]: 'Arbitrum Goerli',
+  [ChainId.MAINNET]: 'Berachain',
   [ChainId.RINKEBY]: 'Rinkeby',
+  [ChainId.HARDHAT]: 'Hardhat',
 }
 
 export default function Header() {
@@ -349,7 +350,20 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-
+          <StyledNavLink
+            id={`farm-nav-link`}
+            to={'/farm'}
+            isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/farm')}
+          >
+            {t('Farm')}
+          </StyledNavLink>
+          <StyledNavLink
+            id={`stake-nav-link`}
+            to={'/stake'}
+            isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/stake')}
+          >
+            {t('Stake')}
+          </StyledNavLink>
           <BridgeMenu />
           <StyledExternalLink id={`charts-nav-link`} href="https://info.beradex.xyz">
             {t('Charts')}

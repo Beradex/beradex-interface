@@ -10,6 +10,7 @@ export const WETH = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, WETH9_ADDRESS[ChainId.MAINNET], 18, 'WBERA', 'Wrapped Bera'),
   [ChainId.TESTNET]: new Token(ChainId.TESTNET, WETH9_ADDRESS[ChainId.TESTNET], 18, 'WBERA', 'Wrapped Bera'),
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, WETH9_ADDRESS[ChainId.RINKEBY], 18, 'WEVMOS', 'Wrapped Evmos'),
+  [ChainId.HARDHAT]: new Token(ChainId.HARDHAT, WETH9_ADDRESS[ChainId.HARDHAT], 18, 'WBERA', 'Wrapped Bera'),
 }
 export const WETH9 = WETH
 

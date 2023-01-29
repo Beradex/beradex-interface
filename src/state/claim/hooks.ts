@@ -2,7 +2,7 @@ import JSBI from 'jsbi'
 import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useEffect, useState } from 'react'
-import { tTOKEN } from '../../constants/tokens'
+import { BRDX } from '../../constants/tokens'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { useMerkleDistributorContract } from '../../hooks/useContract'
 import { calculateGasMargin } from '../../utils/calculateGasMargin'
@@ -81,7 +81,7 @@ export function useUserUnclaimedAmount(account: string | null | undefined): Curr
   const userClaimData = useUserClaimData(account)
   const canClaim = useUserHasAvailableClaim(account)
 
-  const uni = chainId ? tTOKEN[chainId] : undefined
+  const uni = chainId ? BRDX[chainId] : undefined
   if (!uni) return undefined
   if (!canClaim || !userClaimData) {
     return CurrencyAmount.fromRawAmount(uni, JSBI.BigInt(0))

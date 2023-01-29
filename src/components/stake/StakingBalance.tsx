@@ -5,7 +5,7 @@ import StakingModal from './StakingModal'
 import UnstakingModal from './UnstakingModal'
 import styled from 'styled-components'
 // add XDIFFUSION down below //
-import { tTOKEN, XDIFF } from 'constants/tokens'
+import { BRDX, XBRDX } from 'constants/tokens'
 import { useActiveWeb3React } from 'hooks/web3'
 import React, { useState } from 'react'
 import { useTokenBalance } from 'state/wallet/hooks'
@@ -32,16 +32,16 @@ const TokenAndUSDCBalance = styled.div`
 
 export function StakingBalance() {
   const { account, chainId } = useActiveWeb3React()
-  const token = chainId ? tTOKEN[chainId] : undefined
-  const xToken = chainId ? XDIFF[chainId] : undefined
+  const token = chainId ? BRDX[chainId] : undefined
+  const xToken = chainId ? XBRDX[chainId] : undefined
   const diffusionBalance = useTokenBalance(account ?? undefined, token)
   const diffusionUSDCValue = useUSDCValue(diffusionBalance)
   const xdiffBalance = useTokenBalance(account ?? undefined, xToken)
   const earnedDiff = useEarnedDiff(xdiffBalance)
   const earnedDiffUSDCValue = useUSDCValue(earnedDiff)
-  const xDiffContractBalance = useTokenBalance(chainId ? XDIFF[chainId].address : undefined, token)
+  const xDiffContractBalance = useTokenBalance(chainId ? XBRDX[chainId].address : undefined, token)
   const xDiffContractUSDCBalance = useUSDCValue(xDiffContractBalance)
-  const emission = token ? CurrencyAmount.fromRawAmount(token, 62500e18) : undefined
+  const emission = token ? CurrencyAmount.fromRawAmount(token, 62500e18) : undefined // brdx: adjust for APR
 
   const emissionPerSecond = token ? CurrencyAmount.fromRawAmount(token, 0.72337962963e18) : undefined
 
@@ -100,7 +100,7 @@ export function StakingBalance() {
                 <TokenLogo>
                   <DoubleCurrencyLogo currency0={xToken} currency1={token} size={16} />
                   <TYPE.body fontSize={16} fontWeight={500} margin={'10px'}>
-                    DIFF / xDIFF Ratio:{' '}
+                    BRDX / xBRDX Ratio:{' '}
                     <span style={{ color: '#27D2EA', fontSize: '14px', paddingLeft: '7px' }}>
                       {ratio ? (
                         <CountUp
@@ -117,7 +117,7 @@ export function StakingBalance() {
                       )}
                     </span>
                   </TYPE.body>
-                  <QuestionHelper text={`Unstaking 1 xDIFF will earn ${ratio?.toSignificant()} DIFF`} />
+                  <QuestionHelper text={`Unstaking 1 xBRDX will earn ${ratio?.toSignificant()} BRDX`} />
                 </TokenLogo>
               </TYPE.largeHeader>
             </AutoColumn>
@@ -128,7 +128,7 @@ export function StakingBalance() {
               <TokenLogo>
                 <CurrencyLogoFromList currency={token ?? undefined} size={'24px'} />
                 <TYPE.body fontSize={20} fontWeight={500} margin={'10px'}>
-                  DIFF
+                  BRDX
                 </TYPE.body>
               </TokenLogo>
             </AutoColumn>
@@ -172,7 +172,7 @@ export function StakingBalance() {
               <TokenLogo>
                 <CurrencyLogoFromList currency={xToken ?? undefined} size={'24px'} />
                 <TYPE.body fontSize={20} fontWeight={500} margin={'10px'}>
-                  xDIFF
+                  xBRDX
                 </TYPE.body>
               </TokenLogo>
             </AutoColumn>
@@ -217,12 +217,12 @@ export function StakingBalance() {
               <TokenLogo>
                 <CurrencyLogoFromList currency={token ?? undefined} size={'24px'} />
                 <TYPE.body fontSize={20} fontWeight={500} margin={'10px'}>
-                  Staked DIFF
+                  Staked BRDX
                 </TYPE.body>
                 <QuestionHelper
                   text={`${earnedDiff?.toFixed(
                     2
-                  )} DIFF is available upon unstaking ${xdiffBalance?.toSignificant()} xDIFF.`}
+                  )} BRDX is available upon unstaking ${xdiffBalance?.toSignificant()} xBRDX.`}
                 />
               </TokenLogo>
             </AutoColumn>

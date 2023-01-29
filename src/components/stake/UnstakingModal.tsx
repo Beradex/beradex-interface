@@ -58,7 +58,7 @@ export default function UnstakingModal({ isOpen, onDismiss, availableAmount }: S
       try {
         const response = await diffusionBar.leave(`0x${parsedAmount.quotient.toString(16)}`)
         addTransaction(response, {
-          summary: 'Unstaked xDIFF',
+          summary: 'Unstaked xBRDX',
         })
         setHash(response.hash)
       } catch (e: any) {
@@ -110,7 +110,7 @@ export default function UnstakingModal({ isOpen, onDismiss, availableAmount }: S
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Unstaking</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} xDIFF</TYPE.body>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} xBRDX</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -118,7 +118,7 @@ export default function UnstakingModal({ isOpen, onDismiss, availableAmount }: S
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Unstaked {parsedAmount?.toSignificant(4)} xDIFF</TYPE.body>
+            <TYPE.body fontSize={20}>Unstaked {parsedAmount?.toSignificant(4)} xBRDX</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

@@ -140,7 +140,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
             customBalanceText={'Available to deposit: '}
             id="stake-liquidity-token"
           />
-          {/* 
+          {/*
           <HypotheticalRewardRate dim={!hypotheticalRewardRate.greaterThan('0')}>
             <div>
               <TYPE.black fontWeight={600}>Weekly Rewards</TYPE.black>
@@ -176,7 +176,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Depositing Liquidity</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} BRTR-LP</TYPE.body>
+            <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} BLP</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}
@@ -184,7 +184,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} BRTR-LP</TYPE.body>
+            <TYPE.body fontSize={20}>Deposited {parsedAmount?.toSignificant(4)} BLP</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}

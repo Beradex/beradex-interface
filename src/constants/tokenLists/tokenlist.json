@@ -17,11 +17,11 @@
       "logoURI": "https://storage.googleapis.com/us-central1-dgc-berlin-0-470cbba9-bucket/tokenlist/wevmos.png"
     },
     {
-      "name": "Diffusion",
-      "symbol": "DIFF",
+      "name": "Beradex Token",
+      "symbol": "BRDX",
       "chainId": 9000,
       "decimals": 18,
-      "address": "",
+      "address": "0xCB7dEe5aE9E6F38cEA71ae372fC72CDc7BDF522d",
       "logoURI": "https://storage.googleapis.com/us-central1-dgc-berlin-0-470cbba9-bucket/tokenlist/DIFF.png"
     }
   ]

@@ -123,6 +123,16 @@ export function MobileMenu() {
           >
             {t('pool')}
           </StyledNavLink>
+          <StyledNavLink
+            id={`farm-nav-link`}
+            to={'/farm'}
+            isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/farm')}
+          >
+            {t('Farm')}
+          </StyledNavLink>
+          <StyledNavLink id={`stake-nav-link`} to={'/stake'}>
+            {t('Stake')}
+          </StyledNavLink>
           <BridgeMenu />
         </Menu>
       )}

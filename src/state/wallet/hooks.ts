@@ -11,7 +11,7 @@ import { useTotalUniEarned } from '../stake/hooks'
 import { Interface } from '@ethersproject/abi'
 import ERC20ABI from 'abis/erc20.json'
 import { Erc20Interface } from 'abis/types/Erc20'
-import { tTOKEN } from 'constants/tokens'
+import { BRDX } from 'constants/tokens'
 /**
  * Returns a map of the given addresses to their eventually consistent ETH balances.
  */
@@ -148,7 +148,7 @@ export function useAllTokenBalances(): { [tokenAddress: string]: CurrencyAmount<
 export function useAggregateUniBalance(): CurrencyAmount<Token> | undefined {
   const { account, chainId } = useActiveWeb3React()
 
-  const uni = chainId ? tTOKEN[chainId] : undefined
+  const uni = chainId ? BRDX[chainId] : undefined
 
   const uniBalance: CurrencyAmount<Token> | undefined = useTokenBalance(account ?? undefined, uni)
   const uniUnclaimed: CurrencyAmount<Token> | undefined = useUserUnclaimedAmount(account)

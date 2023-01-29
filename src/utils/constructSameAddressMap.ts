@@ -5,5 +5,6 @@ export function constructSameAddressMap<T extends string>(address: T): { [chainI
     [ChainId.MAINNET]: address,
     [ChainId.TESTNET]: address,
     [ChainId.RINKEBY]: address,
+    [ChainId.HARDHAT]: address,
   }
 }
