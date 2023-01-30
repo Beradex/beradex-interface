@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 
 export default {
-  title: 'Charts',
+  title: 'Analytics',
   argTypes: {
     disabled: { control: { type: 'boolean' } },
     onClick: { action: 'clicked' },

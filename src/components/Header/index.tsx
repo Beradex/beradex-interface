@@ -366,7 +366,7 @@ export default function Header() {
           </StyledNavLink>
           <BridgeMenu />
           <StyledExternalLink id={`charts-nav-link`} href="https://info.beradex.xyz">
-            {t('Charts')}
+            {t('Analytics')}
             <sup>↗</sup>
           </StyledExternalLink>
         </HeaderLinks>
