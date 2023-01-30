@@ -1,7 +1,7 @@
 ## beraDEX Mainnet
 
-Factory: 0x152A9F4Af02c50281929BB08faff09077AD0aFc7
-Router: 0xb765f85A5DDd3936b090f408A81DFd425a08EF8F
+- Factory: 0x6985EaB514E41C767d78CF72CD588bB168c6CD46
+- Router: 0x477030DAbDfA9322730498af2e82D10296F85B0E
 
 # Uniswap Interface
 
@@ -60,5 +60,5 @@ Uniswap protocol V2.
 
 The Uniswap V1 interface for mainnet and testnets is accessible via IPFS gateways
 linked from the [v1.0.0 release](https://github.com/Uniswap/uniswap-interface/releases/tag/v1.0.0).
+
 # beraDEX-mainnet
-# beradex-mainnet
