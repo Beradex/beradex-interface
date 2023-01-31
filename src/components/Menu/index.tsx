@@ -148,13 +148,13 @@ export default function Menu() {
             <BookOpen size={14} />
             <div>Docs</div>
           </MenuItem>
-          <MenuItem href="https://#">
+          <MenuItem href="https://github.com/Beradex">
             <Code size={14} />
             <div>Code</div>
           </MenuItem>
-          <MenuItem href="https://#">
+          <MenuItem href="https://discord.com/invite/BDVJgvPHQv">
             <MessageCircle size={14} />
-            <div>Telegram</div>
+            <div>Discord</div>
           </MenuItem>
           <MenuItem href="https://#">
             <FileText size={14} />
