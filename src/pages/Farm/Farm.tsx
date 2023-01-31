@@ -54,7 +54,7 @@ const PositionInfo = styled(AutoColumn)<{ dim: any }>`
 `
 
 const BottomSection = styled(AutoColumn)`
-  border-radius: 10px;
+  border-radius: 8px;
   width: 100%;
   position: relative;
   ${Glow}
@@ -86,13 +86,12 @@ const Heading = styled.div`
   justify-content: center;
 `
 
-const PageHeading = styled(TYPE.largeHeader)`
-  display: flex;
-  margin: 0;
-  gap: 5px;
+const YourDeposits = styled(RowBetween)`
+  align-items: baseline;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10px;
   `};
 `
 
@@ -104,12 +103,13 @@ const YourDepositsHeading = styled(RowBetween)`
   `};
 `
 
-const YourDeposits = styled(RowBetween)`
-  align-items: baseline;
+const PageHeading = styled(TYPE.largeHeader)`
+  display: flex;
+  margin: 0;
+  gap: 5px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     flex-direction: column;
     align-items: center;
-    padding-bottom: 10px;
   `};
 `
 

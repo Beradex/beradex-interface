@@ -28,7 +28,6 @@ export function usePairTokens(pairAddress?: string) {
   const token1 = useToken(token1CallAddress.result?.[0])
   const lpToken = useToken(pairAddress)
   const availableLPAmount = useTokenBalance(account ?? undefined, lpToken ?? undefined)
-
   const totalPoolStaked = useTokenBalance(minichef?.address, lpToken ?? undefined)
   const [, pair] = useV2Pair(token0 ?? undefined, token1 ?? undefined)
 
@@ -42,7 +41,7 @@ export function usePairTokens(pairAddress?: string) {
   }
 }
 
-export const NOMAD_POOLS: number[] = [0, 1, 2, 3]
+export const NOMAD_POOLS: number[] = [0, 2, 3]
 
 export function usePools(page = 0, pageSize = 10) {
   const { account, chainId } = useActiveWeb3React()
