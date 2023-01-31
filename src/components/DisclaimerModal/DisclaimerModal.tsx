@@ -7,7 +7,7 @@ import { TYPE } from 'theme'
 import { Checkbox } from 'components/SearchModal/styleds'
 import { ButtonPrimary } from 'components/Button'
 
-const LS_KEY = 'diff:disclaimer-accepted'
+const LS_KEY = 'brdx:disclaimer-accepted'
 
 export function DisclaimerModal() {
   const [isOpen, setIsOpen] = useState(!localStorage.getItem(LS_KEY))

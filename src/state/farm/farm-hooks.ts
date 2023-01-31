@@ -72,15 +72,15 @@ export function usePools(page = 0, pageSize = 10) {
     blocksPerFetch: 1000,
   })
 
-  const diffusionPerSecondResponse = useSingleCallResult(minichefContract, 'diffusionPerSecond', [])
-  const diffusionPerSecond = diffusionPerSecondResponse.result?.[0]
-    ? JSBI.BigInt(diffusionPerSecondResponse.result[0].toString())
+  const beradexPerSecondResponse = useSingleCallResult(minichefContract, 'beradexPerSecond', [])
+  const beradexPerSecond = beradexPerSecondResponse.result?.[0]
+    ? JSBI.BigInt(beradexPerSecondResponse.result[0].toString())
     : JSBI.BigInt(0)
 
   const totalAllocationResponse = useSingleCallResult(minichefContract, 'totalAllocPoint', [], { blocksPerFetch: 50 })
   const totalAllocation = totalAllocationResponse.result?.[0] as BigNumber | undefined
 
-  const pendingDiffusions = useSingleContractMultipleData(minichefContract, 'pendingDiffusion', pendingArguments, {
+  const pendingBeradexs = useSingleContractMultipleData(minichefContract, 'pendingBeradex', pendingArguments, {
     blocksPerFetch: 50,
   })
 
@@ -95,7 +95,7 @@ export function usePools(page = 0, pageSize = 10) {
         const poolEmissionPerSecond =
           poolInfo?.allocPoint && totalAllocation
             ? JSBI.divide(
-                JSBI.multiply(diffusionPerSecond, JSBI.BigInt(poolInfo.allocPoint.toString())),
+                JSBI.multiply(beradexPerSecond, JSBI.BigInt(poolInfo.allocPoint.toString())),
                 JSBI.BigInt(totalAllocation.toString())
               )
             : undefined
@@ -104,9 +104,7 @@ export function usePools(page = 0, pageSize = 10) {
           ? CurrencyAmount.fromRawAmount(BRDX[chainId], poolEmissionPerSecond || 0)
           : undefined
 
-        const pendingResult = account
-          ? (pendingDiffusions[idx]?.result as unknown as { pending: BigNumber })
-          : undefined
+        const pendingResult = account ? (pendingBeradexs[idx]?.result as unknown as { pending: BigNumber }) : undefined
         if (!lpTokenAddress || !poolInfo) {
           return null
         }
@@ -115,7 +113,7 @@ export function usePools(page = 0, pageSize = 10) {
           lpTokenAddress,
           rewarderAddress,
           poolInfo: {
-            accDiffusionPerShare: poolInfo?.accDiffusionPerShare,
+            accBeradexPerShare: poolInfo?.accBeradexPerShare,
             allocPoint: poolInfo?.allocPoint,
             lastRewardTime: poolInfo?.lastRewardTime,
           },
@@ -133,9 +131,9 @@ export function usePools(page = 0, pageSize = 10) {
   }, [
     account,
     chainId,
-    diffusionPerSecond,
+    beradexPerSecond,
     lpTokens,
-    pendingDiffusions,
+    pendingBeradexs,
     poolInfos,
     rewarders,
     totalAllocation,
@@ -179,16 +177,16 @@ export function usePool(poolId: number) {
     blocksPerFetch: 100,
   })
 
-  const diffusionPerSecondResponse = useSingleCallResult(minichefContract, 'diffusionPerSecond', [], {
+  const beradexPerSecondResponse = useSingleCallResult(minichefContract, 'beradexPerSecond', [], {
     blocksPerFetch: 500,
   })
-  const diffusionPerSecond = diffusionPerSecondResponse.result?.[0]
-    ? JSBI.BigInt(diffusionPerSecondResponse.result[0].toString())
+  const beradexPerSecond = beradexPerSecondResponse.result?.[0]
+    ? JSBI.BigInt(beradexPerSecondResponse.result[0].toString())
     : JSBI.BigInt(0)
 
   const totalAllocationResponse = useSingleCallResult(minichefContract, 'totalAllocPoint', [], { blocksPerFetch: 19 })
   const totalAllocation = totalAllocationResponse.result?.[0] as BigNumber | undefined
-  const pendingDiffusions = useSingleCallResult(minichefContract, 'pendingDiffusion', [poolId, account ?? undefined])
+  const pendingBeradexs = useSingleCallResult(minichefContract, 'pendingBeradex', [poolId, account ?? undefined])
 
   const lpTokenAddress = lpTokens?.result?.[0] as string | undefined
   const rewarderAddress = rewarders?.result?.[0] as string | undefined
@@ -203,7 +201,7 @@ export function usePool(poolId: number) {
     const poolEmissionPerSecond =
       poolInfo?.allocPoint && totalAllocation && totalAllocation.gt(0)
         ? JSBI.divide(
-            JSBI.multiply(diffusionPerSecond, JSBI.BigInt(poolInfo.allocPoint.toString())),
+            JSBI.multiply(beradexPerSecond, JSBI.BigInt(poolInfo.allocPoint.toString())),
             JSBI.BigInt(totalAllocation.toString())
           )
         : undefined
@@ -212,12 +210,12 @@ export function usePool(poolId: number) {
       ? CurrencyAmount.fromRawAmount(BRDX[chainId], poolEmissionPerSecond || 0)
       : undefined
 
-    const pendingResult = account ? (pendingDiffusions?.result as unknown as { pending: BigNumber }) : undefined
+    const pendingResult = account ? (pendingBeradexs?.result as unknown as { pending: BigNumber }) : undefined
     return {
       lpTokenAddress,
       rewarderAddress,
       poolInfo: {
-        accDiffusionPerShare: poolInfo?.accDiffusionPerShare,
+        accBeradexPerShare: poolInfo?.accBeradexPerShare,
         allocPoint: poolInfo?.allocPoint,
         lastRewardTime: poolInfo?.lastRewardTime,
       },
@@ -231,9 +229,9 @@ export function usePool(poolId: number) {
   }, [
     account,
     chainId,
-    diffusionPerSecond,
+    beradexPerSecond,
     lpTokenAddress,
-    pendingDiffusions?.result,
+    pendingBeradexs?.result,
     poolId,
     poolInfo,
     rewarderAddress,
@@ -313,7 +311,7 @@ export function useRewardInfos(pid: number, rewardContractAddress?: string) {
     pendingAmount,
     rewardPerSecondAmount,
     poolInfo: {
-      accEmissionPerShare: poolInfo?.accDiffusionPerShare,
+      accEmissionPerShare: poolInfo?.accBeradexPerShare,
       allocPoint: poolInfo?.allocPoint,
       lastRewardTime: poolInfo?.lastRewardTime,
     },
@@ -371,7 +369,7 @@ export interface MinichefRawPoolInfo {
 }
 
 type PoolInfo = {
-  accDiffusionPerShare: BigNumber
+  accBeradexPerShare: BigNumber
   allocPoint: BigNumber
   lastRewardTime: BigNumber
 }
