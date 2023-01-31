@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { DefaultTheme } from 'styled-components'
-import { PotionIcon2 } from '../Potions/Potions'
+import { BeraIcon2 } from '../Potions/Potions'
 
 const FarmHeadingContainer = styled.div`
   max-width: 1080px;
@@ -32,7 +32,7 @@ export const FarmHeading = () => {
   return (
     <FarmHeadingContainer>
       <HeaderTextLine>
-        <PotionIcon2 width={60} height={60} />
+        <BeraIcon2 width={60} height={60} />
         <HeadingText>Farm</HeadingText>
       </HeaderTextLine>
       <DescriptionText>Earn fees and rewards by depositing and staking your LP tokens.</DescriptionText>

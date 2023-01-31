@@ -31,7 +31,7 @@ import {
   useFarmTVL,
   NOMAD_POOLS,
 } from 'state/farm/farm-hooks'
-import { PotionIcon4 } from '../../components/Potions/Potions'
+import { BeraIcon4 } from '../../components/Potions/Potions'
 
 import { HRDark } from '../../components/HR/HR'
 
@@ -192,7 +192,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
     <PageWrapper gap="lg" justify="center">
       <AutoRow justify={'space-between'}>
         <Heading>
-          <PotionIcon4 width={60} height={60} />
+          <BeraIcon4 width={60} height={60} />
           <PageHeading>
             <span>
               {currency0?.symbol}-{currency1?.symbol}

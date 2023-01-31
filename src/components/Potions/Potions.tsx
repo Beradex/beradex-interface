@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Potion1 from '../../assets/images/potion_01.png'
-import Potion2 from '../../assets/images/potion_02.png'
-import Potion3 from '../../assets/images/potion_03.png'
-import Potion4 from '../../assets/images/potion_04.png'
+import Icon1 from '../../assets/images/icon_01.png'
+import Icon2 from '../../assets/images/icon_02.png'
+import Icon3 from '../../assets/images/icon_03.png'
+import Icon4 from '../../assets/images/icon_04.png'
 
 const Image = styled.img<{ width: number; height: number }>`
   display: inline-block;
@@ -19,10 +19,10 @@ const Image = styled.img<{ width: number; height: number }>`
   margin-right: +10px;
 `
 
-export const PotionIcon = (props: any) => <Image width={props.width} height={props.width} src={Potion1} />
-export const PotionIcon2 = (props: any) => <Image width={props.width} height={props.width} src={Potion2} />
-export const PotionIcon3 = (props: any) => <Image width={props.width} height={props.width} src={Potion3} />
-export const PotionIcon4 = (props: any) => <Image width={props.width} height={props.width} src={Potion4} />
+export const BeraIcon = (props: any) => <Image width={props.width} height={props.width} src={Icon1} />
+export const BeraIcon2 = (props: any) => <Image width={props.width} height={props.width} src={Icon2} />
+export const BeraIcon3 = (props: any) => <Image width={props.width} height={props.width} src={Icon3} />
+export const BeraIcon4 = (props: any) => <Image width={props.width} height={props.width} src={Icon4} />
 
 const bunnyFall = keyframes`
   0% {
@@ -81,16 +81,16 @@ export const ThrowPotions = ({ count = 30, size = 32, iterations = Infinity, dur
   const potions = [...Array(count)].map((_, index) => (
     <div key={String(index)}>
       <Potion key={String(index)} position={Math.random() * 100} iterations={iterations} duration={duration}>
-        <PotionIcon width={size} height={size} />
+        <BeraIcon width={size} height={size} />
       </Potion>
       <Potion key={String(index)} position={Math.random() * 100} iterations={iterations} duration={duration}>
-        <PotionIcon2 width={size} height={size} />
+        <BeraIcon2 width={size} height={size} />
       </Potion>
       <Potion key={String(index)} position={Math.random() * 100} iterations={iterations} duration={duration}>
-        <PotionIcon3 width={size} height={size} />
+        <BeraIcon3 width={size} height={size} />
       </Potion>
       <Potion key={String(index)} position={Math.random() * 100} iterations={iterations} duration={duration}>
-        <PotionIcon4 width={size} height={size} />
+        <BeraIcon4 width={size} height={size} />
       </Potion>
     </div>
   ))

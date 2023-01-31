@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import React from 'react'
 
-import { PotionIcon } from '../../components/Potions/Potions'
+import { BeraIcon } from '../../components/Potions/Potions'
 import { TYPE } from '../../theme'
 
 import TuxImg from '../../assets/images/tux2.png'
@@ -53,7 +53,7 @@ export function StakingPage() {
       <PageWrapper>
         <Tux src={TuxImg} />
         <Heading>
-          <PotionIcon width={60} height={60} />
+          <BeraIcon width={60} height={60} />
           <TYPE.largeHeader style={{ margin: 0 }}>Boost your yield by staking BRDX for xBRDX</TYPE.largeHeader>
         </Heading>
         <AutoColumn gap="lg" justify="center">

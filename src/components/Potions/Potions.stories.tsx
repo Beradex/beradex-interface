@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react/types-6-0'
 import React, { PropsWithChildren } from 'react'
 import Component, { BadgeProps, BadgeVariant } from './../Badge/index'
-import { PotionIcon } from './Potions'
+import { BeraIcon } from './Potions'
 
 export default {
   title: 'Potions',
@@ -23,7 +23,7 @@ export default {
 }
 
 // @ts-ignore
-const Template: Story<PropsWithChildren<BadgeProps>> = (args) => <PotionIcon {...args}>{args.children}</PotionIcon>
+const Template: Story<PropsWithChildren<BadgeProps>> = (args) => <BeraIcon {...args}>{args.children}</BeraIcon>
 
 export const DefaultBadge = Template.bind({})
 DefaultBadge.args = {

@@ -1,6 +1,6 @@
 // used to mark unsupported tokens, these are hosted lists of unsupported tokens
-// beraDEX: update this
-const BERADEX_LIST = './tokenLists/tokenlist.json'
+
+const BERADEX_LIST = 'https://raw.githubusercontent.com/Beradex/tokenlist/main/src/tokenlist.json'
 
 export const UNSUPPORTED_LIST_URLS: string[] = []
 // export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST]
@@ -8,7 +8,6 @@ export const UNSUPPORTED_LIST_URLS: string[] = []
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [
   BERADEX_LIST,
-  //DIFFUSION_COMMUNITY_LIST,
   ...UNSUPPORTED_LIST_URLS, // need to load unsupported tokens as well
 ]
 

@@ -40,7 +40,7 @@ const AppWrapper = styled.div`
 const BodyWrapper = styled.div`
   height: 100%;
   width: 100%;
-  position: fixed;
+  position: absolute;
   background-size: 40px 40px;
   background-image: radial-gradient(circle, #121212 1px, rgba(0, 0, 0, 0) 1px);
   display: flex;
