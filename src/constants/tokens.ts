@@ -60,13 +60,7 @@ export const XBRDX = makeToken('xBRDX', 'XBRDX', 18, {
   [ChainId.RINKEBY]: '',
   [ChainId.HARDHAT]: HARDHAT.diffusionbar,
 })
-/*
-export const XDIFFUSION = makeToken('xDiffusion', 'XDIFF', 18, {
-  [ChainId.MAINNET]: MAINNET.diffusionbar,
-  [ChainId.TESTNET]: TESTNET.diffusionbar,
-  [ChainId.RINKEBY]: *@TODO: WRONG * '0x655dfdd82cb10dc7fb931fd85d69887756b922fd',
-})
-*/
+
 function makeToken(name: string, symbol: string, decimals: number, addresses: Record<ChainId, string>) {
   return {
     [ChainId.MAINNET]: new Token(ChainId.MAINNET, addresses[ChainId.MAINNET], decimals, symbol, name),

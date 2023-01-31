@@ -6,6 +6,7 @@
   "devDependencies": {
     "@craco/craco": "^6.4.3",
     "@emotion/core": "^11.0.0",
+    "@fontsource/rubik": "^4.5.0",
     "@ethersproject/experimental": "^5.0.1",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",

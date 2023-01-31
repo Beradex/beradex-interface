@@ -9,8 +9,8 @@ import styled, {
 } from 'styled-components'
 import { useIsDarkMode } from '../state/user/hooks'
 import { Colors } from './styled'
-import '../fonts/Graphik.otf'
 export * from './components'
+import '@fontsource/rubik'
 
 export const MEDIA_WIDTHS = {
   upToExtraSmall: 500,
@@ -239,14 +239,14 @@ export const ThemedBackground = styled.div<{ backgroundColor?: string | undefine
 */
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   font-display: fallback;
 }
 @supports (font-variation-settings: normal) {
   html, input, textarea, button {
-    font-family: 'Graphik', sans-serif;
-    src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+    font-family: 'Rubik';
+    font-display: fallback;
     lineHeight: 1;
   }
 }

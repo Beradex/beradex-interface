@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { darken } from 'polished'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components/macro'
+import '@fontsource/rubik'
 
 // import Logo from '../../assets/logo'
 
@@ -40,8 +41,8 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   align-items: center;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   font-size: 1rem;
   flex-direction: row;
   width: 100%;
@@ -128,8 +129,8 @@ const HeaderLinks = styled(Row)`
   margin-left: 4%;
   width: fit-content;
   padding: 4px;
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   font-size: 1rem;
   border-radius: 10px;
   display: grid;
@@ -144,8 +145,8 @@ const HeaderLinks = styled(Row)`
 const AccountElement = styled.div<{ active: boolean }>`
   display: flex;
   flex-direction: row;
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   font-size: 1rem;
   align-items: center;
   background: ${({ theme }) =>
@@ -176,8 +177,8 @@ const HideLarge = styled.span`
 
 const NetworkCard = styled(YellowCard)`
   border-radius: 10px;
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   padding: 8px 12px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     margin: 0;
@@ -224,8 +225,8 @@ const StyledNavLink = styled(NavLink).attrs({
   font-size: 1rem;
   width: fit-content;
   font-weight: 500;
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   padding: 8px 12px;
 
   &.${activeClassName} {
@@ -251,8 +252,8 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   text-decoration: none;
   color: ${({ theme }) => theme.text3};
   font-size: 1rem;
-  font-family: 'Graphik', sans-serif;
-  src: local('Graphik'), url('./fonts/Graphik.otf') format ('opentype');
+  font-family: 'Rubik';
+  font-display: fallback;
   width: fit-content;
   margin: 0 12px;
   font-weight: 500;
