@@ -41,7 +41,7 @@ export function usePairTokens(pairAddress?: string) {
   }
 }
 
-export const NOMAD_POOLS: number[] = [0, 2, 3]
+export const DEPRECATED_POOLS: number[] = []
 
 export function usePools(page = 0, pageSize = 10) {
   const { account, chainId } = useActiveWeb3React()

@@ -43,9 +43,7 @@ export const injected = new InjectedConnector({
 export const walletconnect = new WalletConnectConnector({
   supportedChainIds: SUPPORTED_CHAIN_IDS,
   rpc: {
-    //9000: 'https://eth.bd.evmos.dev:8545', // beradex
-    //9001: 'https://evmos-rpc2.binary.host',
-    31337: '',
+    421613: 'https://goerli-rollup.arbitrum.io/rpc',
   },
   // bridge: WALLETCONNECT_BRIDGE_URL,
   qrcode: true,

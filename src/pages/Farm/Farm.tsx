@@ -29,7 +29,7 @@ import {
   useOwnWeeklyEmission,
   useCalculateAPR,
   useFarmTVL,
-  NOMAD_POOLS,
+  DEPRECATED_POOLS,
 } from 'state/farm/farm-hooks'
 import { BeraIcon4 } from '../../components/Potions/Potions'
 
@@ -134,7 +134,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
 
   // detect existing unstaked LP position to show add button if none found
   const userLiquidityUnstaked = availableLPAmount
-  const isNomad = NOMAD_POOLS.includes(poolId)
+  const isNomad = DEPRECATED_POOLS.includes(poolId)
   const showAddLiquidityButton = Boolean(stakedAmount?.equalTo('0') && userLiquidityUnstaked?.equalTo('0')) && !isNomad
 
   // toggle for staking modal and unstaking modal
@@ -207,7 +207,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
           margin={true}
         />
       </AutoRow>
-      {NOMAD_POOLS.includes(poolId)}
+      {DEPRECATED_POOLS.includes(poolId)}
 
       <FarmYield
         apr={totalAPR}

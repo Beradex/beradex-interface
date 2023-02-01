@@ -1,5 +1,5 @@
 {
-  "name": "Beradex List",
+  "name": "Native List",
   "timestamp": "2023-18-11T00:00:00.000Z",
   "logoURI": "https://app.beradex.xyz/favicon.png",
   "version": {
@@ -11,18 +11,26 @@
     {
       "name": "Wrapped Bera",
       "symbol": "WBERA",
-      "chainId": 9000,
+      "chainId": 421613,
       "decimals": 18,
-      "address": "",
-      "logoURI": "https://storage.googleapis.com/us-central1-dgc-berlin-0-470cbba9-bucket/tokenlist/wevmos.png"
+      "address": "0x7F5bc2250ea57d8ca932898297b1FF9aE1a04999",
+      "logoURI": "https://raw.githubusercontent.com/Beradex/tokenlist/main/logos/wbera.png"
     },
     {
       "name": "Beradex Token",
       "symbol": "BRDX",
-      "chainId": 9000,
+      "chainId": 421613,
       "decimals": 18,
-      "address": "0xCB7dEe5aE9E6F38cEA71ae372fC72CDc7BDF522d",
-      "logoURI": "https://storage.googleapis.com/us-central1-dgc-berlin-0-470cbba9-bucket/tokenlist/DIFF.png"
+      "address": "0xb292AF88cd6707508519399A8e0634751C395D58",
+      "logoURI": "https://raw.githubusercontent.com/Beradex/tokenlist/main/logos/brdxlogo.png"
+    },
+    {
+      "name": "Test USDC",
+      "symbol": "TUSDC",
+      "chainId": 421613,
+      "decimals": 18,
+      "address": "0x82747A42b6C2e4551CF973c1321727462B0DB619",
+      "logoURI": "https://raw.githubusercontent.com/Beradex/tokenlist/main/logos/tusdc.png"
     }
   ]
 }

@@ -23,11 +23,9 @@ import {
 } from 'state/farm/farm-hooks'
 
 import styled from 'styled-components'
-import { Tux } from '../../components/farm/TuxBanner'
 
 import { CurrencyAmount } from 'sdk-core/entities'
 import { useUSDCValue } from 'hooks/useUSDCPrice'
-import { NomadWarningBanner } from 'components/WarningBanner/NomadWarningBanner'
 import { HeadingWithPotion } from 'components/Heading/HeadingWithPotion'
 import { useTotalSupply } from 'hooks/useTotalSupply'
 import { PoolListPagination } from './FarmPagination'

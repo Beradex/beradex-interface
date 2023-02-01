@@ -48,7 +48,7 @@ export const USDC = {
 
 export const BRDX = makeToken('BRDX', 'BRDX', 18, {
   [ChainId.MAINNET]: '0x62a4256536eA5E17E5c3F489eA68F27d2A64eb81',
-  [ChainId.TESTNET]: TESTNET.diffusion || '0x62a4256536eA5E17E5c3F489eA68F27d2A64eb81',
+  [ChainId.TESTNET]: TESTNET.diffusion || '0xb292AF88cd6707508519399A8e0634751C395D58',
   // Minichef Main Reward
   [ChainId.RINKEBY]: '0x655dfdd82cb10dc7fb931fd85d69887756b922fd',
   [ChainId.HARDHAT]: HARDHAT.diffusion || '0x13Cf938Dd391B5b4f312cf85DeAFEca3d16Ee73B',

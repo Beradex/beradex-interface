@@ -30,7 +30,7 @@ export default function useUSDCPrice(currency?: Currency): Price<Currency, Token
     // beraDEX: this may influence PriceImpact on FiatValue
     // return some fake price data for non-mainnet
     if (chainId !== ChainId.MAINNET) {
-      const fakeUSDC = new Token(chainId, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'fUSDC', 'Fake USDC')
+      const fakeUSDC = new Token(chainId, '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8', 6, 'fUSDC', 'Fake USDC')
       return new Price(
         currency,
         fakeUSDC,

@@ -11,6 +11,7 @@ import { SubmittedView, LoadingView } from '../ModalViews'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { useActiveWeb3React } from '../../hooks/web3'
+import { CurrencyAmount, Token } from '@uniswap/sdk-core'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -20,7 +21,10 @@ const ContentWrapper = styled(AutoColumn)`
 interface StakingModalProps {
   isOpen: boolean
   onDismiss: () => void
-  stakingInfo: Pick<StakingInfo, 'stakedAmount' | 'earnedAmount'> & { poolId: number }
+  stakingInfo: Pick<StakingInfo, 'stakedAmount' | 'earnedAmount'> & {
+    poolId: number
+    earnedAmountSecondary: CurrencyAmount<Token>
+  }
 }
 
 export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: StakingModalProps) {
@@ -79,7 +83,15 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
               <TYPE.body fontWeight={600} fontSize={36}>
                 {stakingInfo?.earnedAmount?.toSignificant(6)}
               </TYPE.body>
-              <TYPE.body>Unclaimed BRDX</TYPE.body>
+              <TYPE.body>Unclaimed {stakingInfo?.earnedAmount?.currency.symbol}</TYPE.body>
+            </AutoColumn>
+          )}
+          {stakingInfo?.earnedAmountSecondary && (
+            <AutoColumn justify="center" gap="md">
+              <TYPE.body fontWeight={600} fontSize={36}>
+                {stakingInfo?.earnedAmountSecondary?.toSignificant(6)}
+              </TYPE.body>
+              <TYPE.body>Unclaimed {stakingInfo?.earnedAmountSecondary?.currency.symbol}</TYPE.body>
             </AutoColumn>
           )}
           <TYPE.subHeader style={{ textAlign: 'center' }}>
