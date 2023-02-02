@@ -96,7 +96,7 @@ export default function App() {
                 <Route exact strict path="/farm" component={FarmListPage} />
                 <Route exact strict path="/farm/:poolId" component={Farm} />
 
-                <Route exact strict path="/assets" component={AssetsListPage} />
+                <Route exact strict path="/dashboard" component={AssetsListPage} />
 
                 <Route exact strict path="/stake" component={StakingPage} />
 

@@ -389,44 +389,45 @@ export default function Swap({ history }: RouteComponentProps) {
                 onDismiss={handleConfirmDismiss}
               />
               <AutoColumn gap={'md'}>
-                <CurrencyInputPanel
-                  label={independentField === Field.OUTPUT && !showWrap ? 'From (at most)' : 'From'}
-                  value={formattedAmounts[Field.INPUT]}
-                  showMaxButton={showMaxButton}
-                  currency={currencies[Field.INPUT]}
-                  onUserInput={handleTypeInput}
-                  onMax={handleMaxInput}
-                  fiatValue={fiatValueInput ?? undefined}
-                  onCurrencySelect={handleInputSelect}
-                  otherCurrency={currencies[Field.OUTPUT]}
-                  showCommonBases={true}
-                  id="swap-currency-input"
-                />
-                <ArrowWrapper clickable>
-                  <ArrowDown
-                    size="16"
-                    onClick={() => {
-                      setApprovalSubmitted(false) // reset 2 step UI for approvals
-                      onSwitchTokens()
-                    }}
-                    color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.primary1 : theme.primary3}
+                <div style={{ display: 'relative' }}>
+                  <CurrencyInputPanel
+                    label={independentField === Field.OUTPUT && !showWrap ? 'From (at most)' : 'From'}
+                    value={formattedAmounts[Field.INPUT]}
+                    showMaxButton={showMaxButton}
+                    currency={currencies[Field.INPUT]}
+                    onUserInput={handleTypeInput}
+                    onMax={handleMaxInput}
+                    fiatValue={fiatValueInput ?? undefined}
+                    onCurrencySelect={handleInputSelect}
+                    otherCurrency={currencies[Field.OUTPUT]}
+                    showCommonBases={true}
+                    id="swap-currency-input"
                   />
-                </ArrowWrapper>
-                <CurrencyInputPanel
-                  value={formattedAmounts[Field.OUTPUT]}
-                  onUserInput={handleTypeOutput}
-                  label={independentField === Field.INPUT && !showWrap ? 'To (at least)' : 'To'}
-                  showMaxButton={false}
-                  hideBalance={false}
-                  fiatValue={fiatValueOutput ?? undefined}
-                  priceImpact={priceImpact}
-                  currency={currencies[Field.OUTPUT]}
-                  onCurrencySelect={handleOutputSelect}
-                  otherCurrency={currencies[Field.INPUT]}
-                  showCommonBases={true}
-                  id="swap-currency-output"
-                />
-
+                  <ArrowWrapper clickable>
+                    <ArrowDown
+                      size="16"
+                      onClick={() => {
+                        setApprovalSubmitted(false) // reset 2 step UI for approvals
+                        onSwitchTokens()
+                      }}
+                      color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? theme.primary1 : theme.primary3}
+                    />
+                  </ArrowWrapper>
+                  <CurrencyInputPanel
+                    value={formattedAmounts[Field.OUTPUT]}
+                    onUserInput={handleTypeOutput}
+                    label={independentField === Field.INPUT && !showWrap ? 'To (at least)' : 'To'}
+                    showMaxButton={false}
+                    hideBalance={false}
+                    fiatValue={fiatValueOutput ?? undefined}
+                    priceImpact={priceImpact}
+                    currency={currencies[Field.OUTPUT]}
+                    onCurrencySelect={handleOutputSelect}
+                    otherCurrency={currencies[Field.INPUT]}
+                    showCommonBases={true}
+                    id="swap-currency-output"
+                  />
+                </div>
                 {recipient !== null && !showWrap ? (
                   <>
                     <AutoRow justify="space-between" style={{ padding: '0 1rem' }}>

@@ -69,7 +69,8 @@ export function FarmTable({ children }: { children?: React.ReactNode }) {
 const FarmTableHeaderText = styled(AutoColumn)`
   font-size: 1rem;
   color: ${({ theme }: { theme: DefaultTheme }) => theme.primary1};
-  text-align: center;
+  text-align: right;
+  width: 15%;
 `
 
 const FarmTableHeaderContainer = styled(AutoRow)`
@@ -78,9 +79,14 @@ const FarmTableHeaderContainer = styled(AutoRow)`
   //  0px 24px 32px rgba(141, 71, 0, 0.01);
   //border-radius: 8px 8px 0px 0px;
   //padding: 10px 25px;
-  padding-left: 11%;
-  padding-right: 5%;
+  // padding-left: 11%;
+  // padding-right: 5%;
+  padding: 10px 30px 0;
   margin-bottom: 2%;
+  align-items: flex-start;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    display: none
+  `};
 `
 
 export function FarmTableHeader() {

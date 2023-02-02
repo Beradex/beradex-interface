@@ -335,6 +335,13 @@ export default function Header() {
       </HeaderRow>
       <HideSmall>
         <HeaderLinks>
+          <StyledNavLink
+            id={`assets-nav-link`}
+            to={'/dashboard'}
+            isActive={(match, { pathname }) => Boolean(match) || pathname.startsWith('/dashboard')}
+          >
+            {t('Dashboard')}
+          </StyledNavLink>
           <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
             {t('swap')}
           </StyledNavLink>

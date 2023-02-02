@@ -23,8 +23,8 @@ import TokenListLogo from '../../assets/svg/tokenlist.svg'
 import QuestionHelper from 'components/QuestionHelper'
 import useTheme from 'hooks/useTheme'
 
-function currencyKey(currency: Currency | WrappedTokenInfo): string {
-  return currency.isToken ? currency.address : 'ETH'
+export function currencyKey(currency: Currency | WrappedTokenInfo): string {
+  return currency.isToken ? currency.address : 'BERA'
 }
 
 const StyledBalanceText = styled(Text)`
@@ -56,7 +56,7 @@ const FixedContentRow = styled.div`
   align-items: center;
 `
 
-function Balance({ balance }: { balance: CurrencyAmount<Currency> }) {
+export function Balance({ balance }: { balance: CurrencyAmount<Currency> }) {
   return <StyledBalanceText title={balance.toExact()}>{balance.toSignificant(4)}</StyledBalanceText>
 }
 
@@ -69,7 +69,7 @@ const TokenListLogoWrapper = styled.img`
   height: 20px;
 `
 
-function TokenTags({ currency }: { currency: Currency }) {
+export function TokenTags({ currency }: { currency: Currency }) {
   if (!(currency instanceof WrappedTokenInfo)) {
     return <span />
   }
@@ -98,7 +98,7 @@ function TokenTags({ currency }: { currency: Currency }) {
   )
 }
 
-function CurrencyRow({
+export function CurrencyRow({
   currency,
   onSelect,
   isSelected,
@@ -106,10 +106,10 @@ function CurrencyRow({
   style,
 }: {
   currency: Currency
-  onSelect: () => void
-  isSelected: boolean
-  otherSelected: boolean
-  style: CSSProperties
+  onSelect?: () => void
+  isSelected?: boolean
+  otherSelected?: boolean
+  style?: CSSProperties
 }) {
   const { account } = useActiveWeb3React()
   const key = currencyKey(currency)
@@ -123,7 +123,7 @@ function CurrencyRow({
     <MenuItem
       style={style}
       className={`token-item-${key}`}
-      onClick={() => (isSelected ? null : onSelect())}
+      onClick={() => (isSelected ? null : onSelect && onSelect())}
       disabled={isSelected}
       selected={otherSelected}
     >
@@ -146,11 +146,11 @@ function CurrencyRow({
 
 const BREAK_LINE = 'BREAK'
 type BreakLine = typeof BREAK_LINE
-function isBreakLine(x: unknown): x is BreakLine {
+export function isBreakLine(x: unknown): x is BreakLine {
   return x === BREAK_LINE
 }
 
-function BreakLineComponent({ style }: { style: CSSProperties }) {
+export function BreakLineComponent({ style }: { style: CSSProperties }) {
   const theme = useTheme()
   return (
     <FixedContentRow style={style}>

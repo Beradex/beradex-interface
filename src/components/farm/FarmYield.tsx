@@ -13,6 +13,7 @@ import JSBI from 'jsbi'
 import { BIG_INT_SECONDS_IN_WEEK, BIG_INT_SECONDS_IN_DAY } from 'constants/misc'
 import { CountUp } from 'use-count-up'
 import usePrevious from '../../hooks/usePrevious'
+import useMediaQuery from 'hooks/useMediaQuery'
 
 interface FarmYieldProps {
   totalDeposits?: CurrencyAmount<Token>
@@ -37,6 +38,8 @@ export function FarmYield({
   apy,
   emissionTimeframe = 'weekly',
 }: FarmYieldProps) {
+  const isMobile = useMediaQuery('(max-width: 720px)')
+
   const multiplier = emissionTimeframe === 'weekly' ? BIG_INT_SECONDS_IN_WEEK : BIG_INT_SECONDS_IN_DAY
 
   const countUpTotalDeposits = totalDeposits?.toFixed(6) ?? '0'
@@ -62,20 +65,36 @@ export function FarmYield({
     <DataRow style={{ gap: '24px' }}>
       <PoolData>
         <RowBetween>
-          <PoolHeading width={1 / 3} align="end">
-            <TYPE.mediumHeader color={'primary1'}>Total deposits</TYPE.mediumHeader>
+          <PoolHeading width={1.5 / 4} align="end">
+            <TYPE.mediumHeader color={'primary1'} fontSize={isMobile ? 16 : 20}>
+              Total deposits
+            </TYPE.mediumHeader>
           </PoolHeading>
-          <PoolHeading width={1 / 3} align="end">
-            <TYPE.mediumHeader color={'primary1'}>Your Deposit</TYPE.mediumHeader>
+          <PoolHeading width={1.5 / 4} align="end">
+            <TYPE.mediumHeader color={'primary1'} fontSize={isMobile ? 16 : 20}>
+              Your Deposit
+            </TYPE.mediumHeader>
           </PoolHeading>
-          <PoolHeading width={1 / 3} align="end">
-            {apr ? <TYPE.mediumHeader color={'primary1'}>APR</TYPE.mediumHeader> : <></>}
-            {apy ? <TYPE.mediumHeader color={'primary1'}>APY</TYPE.mediumHeader> : <></>}
+          <PoolHeading width={1 / 4} align="end">
+            {apr ? (
+              <TYPE.mediumHeader color={'primary1'} fontSize={isMobile ? 16 : 20}>
+                APR
+              </TYPE.mediumHeader>
+            ) : (
+              <></>
+            )}
+            {apy ? (
+              <TYPE.mediumHeader color={'primary1'} fontSize={isMobile ? 16 : 20}>
+                APY
+              </TYPE.mediumHeader>
+            ) : (
+              <></>
+            )}
           </PoolHeading>
         </RowBetween>
-        <HRDark />
+        <HRDark style={{ margin: '0px' }} />
         <RowBetween>
-          <PoolHeading width={1 / 3} align="right">
+          <PoolHeading width={1.5 / 4} align="right">
             {totalDeposits ? (
               <TYPE.body fontSize={20} fontWeight={500}>
                 {totalDeposits ? (
@@ -95,11 +114,7 @@ export function FarmYield({
             ) : (
               <></>
             )}
-            <TYPE.body
-              fontSize={!totalDeposits ? 20 : 16}
-              fontWeight={500}
-              color={totalDeposits ? 'primary1' : 'white'}
-            >
+            <TYPE.body fontSize={isMobile ? 16 : 20} fontWeight={500} color={totalDeposits ? 'primary1' : 'white'}>
               <span>$</span>
               {totalDepositsInUSD ? (
                 <CountUp
@@ -116,7 +131,7 @@ export function FarmYield({
               )}
             </TYPE.body>
           </PoolHeading>
-          <PoolHeading width={1 / 3} align="right">
+          <PoolHeading width={1.5 / 4} align="right">
             <TYPE.body fontSize={20} fontWeight={500}>
               {yourDeposits ? (
                 <CountUp
@@ -132,11 +147,7 @@ export function FarmYield({
                 <></>
               )}
             </TYPE.body>
-            <TYPE.body
-              fontSize={!totalDeposits ? 20 : 16}
-              fontWeight={500}
-              color={totalDeposits ? 'primary1' : 'white'}
-            >
+            <TYPE.body fontSize={isMobile ? 16 : 20} fontWeight={500} color={totalDeposits ? 'primary1' : 'white'}>
               <span>$</span>
               {yourDepositsInUSD ? (
                 <CountUp
@@ -153,9 +164,9 @@ export function FarmYield({
               )}
             </TYPE.body>
           </PoolHeading>
-          <PoolHeading width={1 / 3} align="end">
+          <PoolHeading width={1 / 4} align="end">
             {apr ? (
-              <TYPE.body fontSize={20} fontWeight={500}>
+              <TYPE.body fontSize={isMobile ? 16 : 20} fontWeight={500}>
                 {JSBI.GT(apr, JSBI.BigInt(0)) ? (
                   <CountUp
                     key={apr.toString()}
@@ -188,8 +199,11 @@ export function FarmYield({
           <RewardRate width={1 / 1} align="center">
             <AutoColumn justify={'stretch'}>
               <Heading>
-                <CurrencyLogoFromList currency={primaryEmissionPerSecond?.currency ?? undefined} size={'24px'} />
-                <TYPE.body fontWeight={500} margin={'5px'}>
+                <CurrencyLogoFromList
+                  currency={primaryEmissionPerSecond?.currency ?? undefined}
+                  size={isMobile ? '16px' : '24px'}
+                />
+                <TYPE.body fontWeight={500} margin={'5px'} fontSize={isMobile ? 16 : 20}>
                   {/*{primaryEmissionPerSecond?.multiply(multiplier)?.toFixed(0, { groupSeparator: ',' }) ?? '-'}*/}
 
                   {primaryEmissionPerSecondCountUp ? (
@@ -205,16 +219,19 @@ export function FarmYield({
                   ) : (
                     <></>
                   )}
-                  <span style={{ color: '#27D2EA' }}> {` ${primaryEmissionPerSecond?.currency.symbol || ''}`}</span>
+                  <span style={{ color: '#ffe500' }}> {` ${primaryEmissionPerSecond?.currency.symbol || ''}`}</span>
                   <span> / {emissionTimeframe === 'weekly' ? 'week' : 'day'}</span>
                 </TYPE.body>
               </Heading>
-              {secondaryEmissionPerSecond && (
+              {secondaryEmissionPerSecond && secondaryEmissionPerSecond.greaterThan(0) && (
                 <Heading>
-                  <CurrencyLogoFromList currency={secondaryEmissionPerSecond.currency ?? undefined} size={'24px'} />
-                  <TYPE.body fontWeight={500} margin={'5px'}>
+                  <CurrencyLogoFromList
+                    currency={secondaryEmissionPerSecond.currency ?? undefined}
+                    size={isMobile ? '16px' : '24px'}
+                  />
+                  <TYPE.body fontWeight={500} margin={'5px'} fontSize={isMobile ? 16 : 20}>
                     {secondaryEmissionPerSecond?.multiply(multiplier)?.toFixed(0, { groupSeparator: ',' }) ?? '-'}
-                    <span style={{ color: '#27D2EA' }}>{` ${secondaryEmissionPerSecond?.currency.symbol || ''}`}</span>
+                    <span style={{ color: '#ffe500' }}>{` ${secondaryEmissionPerSecond?.currency.symbol || ''}`}</span>
                     <span> / {emissionTimeframe === 'weekly' ? 'week' : 'day'}</span>
                   </TYPE.body>
                 </Heading>

@@ -19,6 +19,7 @@ import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
 import getLibrary from './utils/getLibrary'
+import { useActiveWeb3React } from 'hooks/web3'
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
@@ -83,6 +84,7 @@ ReactDOM.render(
     <FixedGlobalStyle />
     <Web3ReactProvider getLibrary={getLibrary}>
       <Web3ProviderNetwork getLibrary={getLibrary}>
+        <ExposeProvider />
         <Blocklist>
           <Provider store={store}>
             <Updaters />
@@ -99,5 +101,16 @@ ReactDOM.render(
   </StrictMode>,
   document.getElementById('root')
 )
+
+declare global {
+  interface Window {
+    $getLibrary: typeof getLibrary
+  }
+}
+function ExposeProvider() {
+  const { library } = useActiveWeb3React()
+  window.$getLibrary = () => library!
+  return null
+}
 
 serviceWorkerRegistration.unregister()

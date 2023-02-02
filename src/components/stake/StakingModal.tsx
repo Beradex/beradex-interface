@@ -20,6 +20,7 @@ import { useDerivedStakeInfo } from '../../state/stake/hooks'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { LoadingView, SubmittedView } from '../ModalViews'
 import useAddTokenToMetamask from 'hooks/useAddTokenToMetamask'
+import Confetti from 'react-confetti'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -32,6 +33,10 @@ interface StakingModalProps {
   availableAmount?: CurrencyAmount<Token>
   currencyToAdd?: Token
 }
+
+const ConfettiZ = styled(Confetti)`
+  z-index: 5;
+`
 
 export default function StakingModal({ isOpen, onDismiss, availableAmount, currencyToAdd }: StakingModalProps) {
   const { library, account } = useActiveWeb3React()

@@ -25,7 +25,7 @@ import QuestionHelper from '../QuestionHelper'
 import { Glow } from '../../pages/AppBody'
 import usePrevious from '../../hooks/usePrevious'
 
-const TokenAndUSDCBalance = styled.div`
+export const TokenAndUSDCBalance = styled.div`
   display: flex;
   align-items: center;
 `
@@ -101,7 +101,7 @@ export function StakingBalance() {
                   <DoubleCurrencyLogo currency0={xToken} currency1={token} size={16} />
                   <TYPE.body fontSize={16} fontWeight={500} margin={'10px'}>
                     BRDX / xBRDX Ratio:{' '}
-                    <span style={{ color: '#27D2EA', fontSize: '14px', paddingLeft: '7px' }}>
+                    <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '7px' }}>
                       {ratio ? (
                         <CountUp
                           key={ratio?.toSignificant()}
@@ -147,7 +147,7 @@ export function StakingBalance() {
                 ) : (
                   <></>
                 )}
-                <span style={{ color: '#27D2EA', fontSize: '14px', paddingLeft: '5px' }}>
+                <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                   <span>$</span>
                   {diffusionUSDCValue ? (
                     <CountUp
@@ -192,7 +192,7 @@ export function StakingBalance() {
                 ) : (
                   `     `
                 )}
-                <span style={{ color: '#27D2EA', fontSize: '14px', paddingLeft: '5px' }}>
+                <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                   <span>$</span>
                   {earnedDiffUSDCValue ? (
                     <CountUp
@@ -242,7 +242,7 @@ export function StakingBalance() {
                 ) : (
                   `     `
                 )}
-                <span style={{ color: '#27D2EA', fontSize: '14px', paddingLeft: '5px' }}>
+                <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                   <span>$</span>
                   {earnedDiffUSDCValue ? (
                     <CountUp
@@ -320,7 +320,7 @@ const BalanceColumn = styled(AutoColumn)`
   width: 100%;
 `
 
-const TokenLogo = styled.div`
+export const TokenLogo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

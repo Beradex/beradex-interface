@@ -4,6 +4,7 @@ import Icon1 from '../../assets/images/icon_01.png'
 import Icon2 from '../../assets/images/icon_02.png'
 import Icon3 from '../../assets/images/icon_03.png'
 import Icon4 from '../../assets/images/icon_04.png'
+import Icon5 from '../../assets/images/icon_05.png'
 
 const Image = styled.img<{ width: number; height: number }>`
   display: inline-block;
@@ -23,6 +24,7 @@ export const BeraIcon = (props: any) => <Image width={props.width} height={props
 export const BeraIcon2 = (props: any) => <Image width={props.width} height={props.width} src={Icon2} />
 export const BeraIcon3 = (props: any) => <Image width={props.width} height={props.width} src={Icon3} />
 export const BeraIcon4 = (props: any) => <Image width={props.width} height={props.width} src={Icon4} />
+export const BeraIcon5 = (props: any) => <Image width={props.width} height={props.width} src={Icon5} />
 
 const bunnyFall = keyframes`
   0% {

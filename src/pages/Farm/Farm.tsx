@@ -134,8 +134,9 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
 
   // detect existing unstaked LP position to show add button if none found
   const userLiquidityUnstaked = availableLPAmount
-  const isNomad = DEPRECATED_POOLS.includes(poolId)
-  const showAddLiquidityButton = Boolean(stakedAmount?.equalTo('0') && userLiquidityUnstaked?.equalTo('0')) && !isNomad
+  const isDeprecated = DEPRECATED_POOLS.includes(poolId)
+  const showAddLiquidityButton =
+    Boolean(stakedAmount?.equalTo('0') && userLiquidityUnstaked?.equalTo('0')) && !isDeprecated
 
   // toggle for staking modal and unstaking modal
   const [showStakingModal, setShowStakingModal] = useState(false)
@@ -184,10 +185,10 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
       tokens: [token0, token1] as [Token, Token],
       stakedAmount: stakedAmount!,
       earnedAmount: pendingAmount!,
-      earnedAmountSecondary: pendingRewardAmount!,
+      earnedAmountSecondary: rewardPerSecondAmount!,
       lpTokenAddress,
     }
-  }, [lpTokenAddress, pendingAmount, poolId, stakedAmount, pendingRewardAmount, token0, token1])
+  }, [lpTokenAddress, pendingAmount, poolId, stakedAmount, rewardPerSecondAmount, token0, token1])
   return (
     <PageWrapper gap="lg" justify="center">
       <AutoRow justify={'space-between'}>
@@ -343,7 +344,7 @@ export default function Manage({ match: { params } }: RouteComponentProps<{ pool
 
         {!showAddLiquidityButton && (
           <DataButtonRow style={{ marginBottom: '1rem' }}>
-            {stakingInfo && !isNomad && (
+            {stakingInfo && !isDeprecated && (
               <ButtonPrimary padding="8px" borderRadius="8px" width="360px" onClick={handleDepositClick}>
                 {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit Beradex LP Tokens'}
               </ButtonPrimary>

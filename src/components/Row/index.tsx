@@ -43,4 +43,23 @@ export const RowFixed = styled(Row)<{ gap?: string; justify?: string }>`
   margin: ${({ gap }) => gap && `-${gap}`};
 `
 
+export const ResponsiveRow = styled.div<{
+  breakpoint?: 'xs' | 'sm' | 'md' | 'lg'
+  rowAlignment?: 'center' | 'flex-start' | 'flex-end' | string
+}>`
+  display: flex;
+  flex-direction: row;
+  align-items: ${({ rowAlignment }) => rowAlignment || 'center'};
+  justify-content: initial;
+  ${({ theme, breakpoint, rowAlignment }) =>
+    ((breakpoint === 'sm' && theme.mediaWidth.upToSmall) ||
+      (breakpoint === 'md' && theme.mediaWidth.upToMedium) ||
+      (breakpoint === 'lg' && theme.mediaWidth.upToLarge) ||
+      theme.mediaWidth.upToExtraSmall)`
+    flex-direction: column;
+    justify-content: ${rowAlignment || 'center'};
+    align-items: initial;
+  `};
+`
+
 export default Row
