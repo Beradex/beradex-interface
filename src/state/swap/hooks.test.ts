@@ -8,12 +8,12 @@ describe('hooks', () => {
       expect(
         queryParametersToSwapState(
           parse(
-            '?inputCurrency=BERA&outputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&exactAmount=20.5&exactField=outPUT',
+            '?inputCurrency=BERA&outputCurrency=0x82747A42b6C2e4551CF973c1321727462B0DB619&exactAmount=20.5&exactField=outPUT',
             { parseArrays: false, ignoreQueryPrefix: true }
           )
         )
       ).toEqual({
-        [Field.OUTPUT]: { currencyId: '0x197b2e6678b32CeA414F6b08Dd764a6612292fE5' },
+        [Field.OUTPUT]: { currencyId: '0xb292AF88cd6707508519399A8e0634751C395D58' },
         [Field.INPUT]: { currencyId: 'BERA' },
         typedValue: '20.5',
         independentField: Field.OUTPUT,
@@ -64,7 +64,7 @@ describe('hooks', () => {
     test('valid recipient', () => {
       expect(
         queryParametersToSwapState(
-          parse('?outputCurrency=BERA&exactAmount=20.5&recipient=0x0fF2D1eFd7A57B7562b2bf27F3f37899dB27F4a5', {
+          parse('?outputCurrency=BERA&exactAmount=20.5&recipient=0xb292AF88cd6707508519399A8e0634751C395D58', {
             parseArrays: false,
             ignoreQueryPrefix: true,
           })
@@ -74,7 +74,7 @@ describe('hooks', () => {
         [Field.INPUT]: { currencyId: '' },
         typedValue: '20.5',
         independentField: Field.INPUT,
-        recipient: '0x0fF2D1eFd7A57B7562b2bf27F3f37899dB27F4a5',
+        recipient: '0xb292AF88cd6707508519399A8e0634751C395D58',
       })
     })
     test('accepts any recipient', () => {

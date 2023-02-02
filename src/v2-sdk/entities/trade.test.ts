@@ -3,11 +3,11 @@ import { Route } from './route'
 import { Trade } from './trade'
 import JSBI from 'jsbi'
 import { CurrencyAmount, Percent, Token, TradeType, Price } from '@uniswap/sdk-core'
-import { Evmos, WETH9 } from 'constants/native-token'
+import { Ether, WETH9 } from 'constants/native-token'
 
 describe('Trade', () => {
-  const CHAIN_ID = 9000
-  const ETHER = Evmos.onChain(CHAIN_ID)
+  const CHAIN_ID = 421613
+  const ETHER = Ether.onChain(CHAIN_ID)
   const token0 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000001', 18, 't0')
   const token1 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000002', 18, 't1')
   const token2 = new Token(CHAIN_ID, '0x0000000000000000000000000000000000000003', 18, 't2')

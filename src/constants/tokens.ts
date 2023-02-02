@@ -6,6 +6,7 @@ import { HARDHAT, MAINNET, TESTNET } from './periphery'
 export { WETH, Ether }
 
 export const ETHER = Ether.onChain(ChainId.MAINNET)
+// export const BERA = Ether.onChain(ChainId.TESTNET)
 
 /* export const WETH = {
   [ChainId.MAINNET]: new Token(

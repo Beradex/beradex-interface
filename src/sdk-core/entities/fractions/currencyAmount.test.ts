@@ -1,6 +1,6 @@
 import JSBI from 'jsbi'
 import { MaxUint256 } from '../../constants'
-import { WETH } from 'constants/tokens'
+import { Ether } from 'constants/tokens'
 import { Token } from '../token'
 import { CurrencyAmount } from './currencyAmount'
 import { Percent } from './percent'
@@ -28,7 +28,7 @@ describe('CurrencyAmount', () => {
     it('produces ether amount', () => {
       const amount = CurrencyAmount.ether(1, 100)
       expect(amount.quotient).toEqual(JSBI.BigInt(100))
-      expect(amount.currency).toEqual(WETH.onChain(1))
+      expect(amount.currency).toEqual(Ether.onChain(1))
     })
   })
 

@@ -79,7 +79,7 @@ const StakedAssetsTable = () => {
             <TokenLogo>
               <CurrencyLogoFromList currency={xToken ?? undefined} size={'24px'} />
               <TYPE.body fontSize={20} fontWeight={500} margin={'10px'}>
-                xBrdx
+                xBRDX
               </TYPE.body>
               {/* {!!assetHelper && <QuestionHelper text={assetHelper} />} */}
             </TokenLogo>
