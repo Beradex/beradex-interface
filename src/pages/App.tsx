@@ -22,6 +22,7 @@ import { ThemedBackground } from '../theme'
 import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import { StakingPage } from './Stake/StakingPage'
 import { DisclaimerModal } from 'components/DisclaimerModal'
+import { AssetsListPage } from './Assets/AssetsList'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -94,6 +95,8 @@ export default function App() {
               <Switch>
                 <Route exact strict path="/farm" component={FarmListPage} />
                 <Route exact strict path="/farm/:poolId" component={Farm} />
+
+                <Route exact strict path="/assets" component={AssetsListPage} />
 
                 <Route exact strict path="/stake" component={StakingPage} />
 
