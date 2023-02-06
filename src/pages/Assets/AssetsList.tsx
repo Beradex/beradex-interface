@@ -29,7 +29,7 @@ import { useStakingInfo } from 'state/stake/hooks'
 import { BIG_INT_ZERO } from 'constants/misc'
 import AssetContextProvider from 'contexts/assets/AssetContext'
 
-import { useEarnedDiff } from 'components/stake/stake-hooks'
+import { useEarnedBrdx } from 'components/stake/stake-hooks'
 import { isTruthy } from 'utils/isTruthy'
 
 const AssetsListContainer = styled.div`
@@ -39,7 +39,7 @@ const AssetsListContainer = styled.div`
 
 const TableHeadingText = styled.h2`
   color: ${({ theme }: { theme: DefaultTheme }) => theme.text2};
-  font-size: 2.25rem;
+  font-size: 1.85rem;
   margin-top: 0;
 `
 
@@ -68,9 +68,9 @@ export const AssetsListPage = () => {
 
   // Staked Assets (xBRDX)
   const xToken = chainId ? XBRDX[chainId] : undefined
-  const [xdiffBalance, xdiffBalanceLoading] = useTokenBalancesWithLoadingIndicator(account ?? undefined, [xToken])
-  const earnedDiff = useEarnedDiff(Object.values(xdiffBalance)[0])
-  const xdiffValue = useUSDCValue(earnedDiff)
+  const [xbrdxBalance, xbrdxBalanceLoading] = useTokenBalancesWithLoadingIndicator(account ?? undefined, [xToken])
+  const earnedBrdx = useEarnedBrdx(Object.values(xbrdxBalance)[0])
+  const xbrdxValue = useUSDCValue(earnedBrdx)
 
   // Liquidity Assets
   // fetch the user's balances of all tracked V2 LP tokens
@@ -159,8 +159,8 @@ export const AssetsListPage = () => {
           description="Overview of assets, liquidity, farm and staking positions on Beradex"
         />
         <TotalAssets
-          stakedBalance={parseFloat(xdiffValue?.toSignificant(4) ?? '0')}
-          isBalanceLoading={fetchingV2PairBalances || balancesLoading || xdiffBalanceLoading || v2IsLoading}
+          stakedBalance={parseFloat(xbrdxValue?.toSignificant(4) ?? '0')}
+          isBalanceLoading={fetchingV2PairBalances || balancesLoading || xbrdxBalanceLoading || v2IsLoading}
         />
         <TableHeadingText>Token</TableHeadingText>
         <TokensAssetsTable

@@ -5,6 +5,7 @@ import {
   Info,
   MessageCircle,
   FileText,
+  Twitter,
   // PieChart
 } from 'react-feather'
 import { Link } from 'react-router-dom'
@@ -159,6 +160,10 @@ export default function Menu() {
           <MenuItem href="https://#">
             <FileText size={14} />
             <div>beraDEX</div>
+          </MenuItem>
+          <MenuItem href="https://twitter.com/bera_dex">
+            <Twitter size={14} />
+            <div>Twitter</div>
           </MenuItem>
         </MenuFlyout>
       )}

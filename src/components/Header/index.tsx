@@ -24,7 +24,7 @@ import Web3Status from '../Web3Status'
 // import Modal from '../Modal'
 // import UniBalanceContent from './UniBalanceContent'
 import { ChainId } from 'constants/chains'
-import DiffusionLogo from '../../assets/svg/logo.svg'
+import BeradexLogo from '../../assets/svg/logo.svg'
 import { ExternalLink } from 'theme/components'
 
 const Logo = styled.img`
@@ -330,7 +330,7 @@ export default function Header() {
       </Modal> */}
       <HeaderRow>
         <Title href=".">
-          <Logo src={DiffusionLogo} />
+          <Logo src={BeradexLogo} />
         </Title>
       </HeaderRow>
       <HideSmall>

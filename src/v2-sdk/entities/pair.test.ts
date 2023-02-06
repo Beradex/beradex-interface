@@ -5,8 +5,8 @@ import { WETH9 } from 'constants/native-token'
 
 describe('computePairAddress', () => {
   it('should correctly compute the pool address', () => {
-    const tokenA = new Token(1, '0x541847ACd3a2195Ce4281779dAAA98a19FB4bB97', 18, 'USDC', 'USD Coin')
-    const tokenB = new Token(1, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
+    const tokenA = new Token(1, '0x82747A42b6C2e4551CF973c1321727462B0DB619', 18, 'USDC', 'USD Coin')
+    const tokenB = new Token(1, '0xb292AF88cd6707508519399A8e0634751C395D58', 18, 'DAI', 'DAI Stablecoin')
     const result = computePairAddress({
       factoryAddress: '0x1111111111111111111111111111111111111111',
       tokenA,
@@ -17,8 +17,8 @@ describe('computePairAddress', () => {
     expect(result).toEqual('0x02A216A79Ffe2dcE2BB9cc975708D12cDDe447C4')
   })
   it('should give same result regardless of token order', () => {
-    const USDC = new Token(1, '0x541847ACd3a2195Ce4281779dAAA98a19FB4bB97', 18, 'USDC', 'USD Coin')
-    const DAI = new Token(1, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
+    const USDC = new Token(1, '0x82747A42b6C2e4551CF973c1321727462B0DB619', 18, 'USDC', 'USD Coin')
+    const DAI = new Token(1, '0xb292AF88cd6707508519399A8e0634751C395D58', 18, 'DAI', 'DAI Stablecoin')
     let tokenA = USDC
     let tokenB = DAI
     const resultA = computePairAddress({
@@ -40,8 +40,8 @@ describe('computePairAddress', () => {
 })
 
 describe('Pair', () => {
-  const USDC = new Token(1, '0x541847ACd3a2195Ce4281779dAAA98a19FB4bB97', 18, 'USDC', 'USD Coin')
-  const DAI = new Token(1, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
+  const USDC = new Token(1, '0x82747A42b6C2e4551CF973c1321727462B0DB619', 18, 'USDC', 'USD Coin')
+  const DAI = new Token(1, '0xb292AF88cd6707508519399A8e0634751C395D58', 18, 'DAI', 'DAI Stablecoin')
 
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {

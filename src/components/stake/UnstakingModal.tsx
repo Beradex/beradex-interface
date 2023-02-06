@@ -13,7 +13,7 @@ import CurrencyInputPanel from '../CurrencyInputPanel'
 import { CurrencyAmount, Token } from 'sdk-core'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
-import { useDiffusionBar } from '../../hooks/useContract'
+import { useBeradexStaking } from '../../hooks/useContract'
 import { useDerivedStakeInfo } from '../../state/stake/hooks'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { LoadingView, SubmittedView } from '../ModalViews'
@@ -49,14 +49,14 @@ export default function UnstakingModal({ isOpen, onDismiss, availableAmount }: S
   // approval data for stake
   const deadline = useTransactionDeadline()
 
-  const diffusionBar = useDiffusionBar()
+  const beradexStaking = useBeradexStaking()
 
   async function onStake() {
     setAttempting(true)
 
-    if (diffusionBar && parsedAmount && deadline && account) {
+    if (beradexStaking && parsedAmount && deadline && account) {
       try {
-        const response = await diffusionBar.leave(`0x${parsedAmount.quotient.toString(16)}`)
+        const response = await beradexStaking.leave(`0x${parsedAmount.quotient.toString(16)}`)
         addTransaction(response, {
           summary: 'Unstaked xBRDX',
         })

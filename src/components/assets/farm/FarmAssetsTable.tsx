@@ -16,7 +16,7 @@ const FarmAssetsTable = () => {
       <AssetsTableHeaderContainer justify={'space-between'}>
         <AssetsTableHeaderText>Farm</AssetsTableHeaderText>
         <AssetsTableHeaderText>LP Amount</AssetsTableHeaderText>
-        <AssetsTableHeaderText>Farm Reward</AssetsTableHeaderText>
+        <AssetsTableHeaderText>Rewards / Week</AssetsTableHeaderText>
         <AssetsTableHeaderText>Position Value</AssetsTableHeaderText>
       </AssetsTableHeaderContainer>
       {pools.map((pool: MinichefRawPoolInfo) => (

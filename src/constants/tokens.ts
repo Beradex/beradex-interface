@@ -49,17 +49,17 @@ export const USDC = {
 
 export const BRDX = makeToken('BRDX', 'BRDX', 18, {
   [ChainId.MAINNET]: '0x62a4256536eA5E17E5c3F489eA68F27d2A64eb81',
-  [ChainId.TESTNET]: TESTNET.diffusion || '0xb292AF88cd6707508519399A8e0634751C395D58',
+  [ChainId.TESTNET]: TESTNET.beradextoken || '0xb292AF88cd6707508519399A8e0634751C395D58',
   // Minichef Main Reward
   [ChainId.RINKEBY]: '0x655dfdd82cb10dc7fb931fd85d69887756b922fd',
-  [ChainId.HARDHAT]: HARDHAT.diffusion || '0x13Cf938Dd391B5b4f312cf85DeAFEca3d16Ee73B',
+  [ChainId.HARDHAT]: HARDHAT.beradextoken || '0x13Cf938Dd391B5b4f312cf85DeAFEca3d16Ee73B',
 })
 
 export const XBRDX = makeToken('xBRDX', 'XBRDX', 18, {
-  [ChainId.MAINNET]: MAINNET.diffusionbar,
-  [ChainId.TESTNET]: TESTNET.diffusionbar,
+  [ChainId.MAINNET]: MAINNET.xbrdx,
+  [ChainId.TESTNET]: TESTNET.xbrdx,
   [ChainId.RINKEBY]: '',
-  [ChainId.HARDHAT]: HARDHAT.diffusionbar,
+  [ChainId.HARDHAT]: HARDHAT.xbrdx,
 })
 
 function makeToken(name: string, symbol: string, decimals: number, addresses: Record<ChainId, string>) {

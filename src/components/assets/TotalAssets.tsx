@@ -23,7 +23,7 @@ const ContentContainer = styled.div`
 `
 
 const ContentTitle = styled.h2`
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.text2};
+  color: ${({ theme }: { theme: DefaultTheme }) => theme.primary1};
   font-size: 1.5rem;
   font-weight: normal;
   margin: 0;
@@ -31,7 +31,7 @@ const ContentTitle = styled.h2`
 `
 
 const ContentValue = styled.p`
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
   margin: 0;
 `

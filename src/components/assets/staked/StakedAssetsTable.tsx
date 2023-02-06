@@ -3,7 +3,7 @@ import { CurrencyLogoFromList } from 'components/CurrencyLogo/CurrencyLogoFromLi
 import { HRDark } from 'components/HR/HR'
 import QuestionHelper from 'components/QuestionHelper'
 import { AutoRow } from 'components/Row'
-import { useEarnedDiff } from 'components/stake/stake-hooks'
+import { useEarnedBrdx } from 'components/stake/stake-hooks'
 import { TokenAndUSDCBalance, TokenLogo } from 'components/stake/StakingBalance'
 import { BRDX, XBRDX } from 'constants/tokens'
 import usePrevious from 'hooks/usePrevious'
@@ -54,17 +54,17 @@ const StakedAssetsTable = () => {
   const { account, chainId } = useActiveWeb3React()
   const token = chainId ? BRDX[chainId] : undefined
   const xToken = chainId ? XBRDX[chainId] : undefined
-  const xdiffBalance = useTokenBalance(account ?? undefined, xToken)
-  const earnedDiff = useEarnedDiff(xdiffBalance)
-  const earnedDiffUSDCValue = useUSDCValue(earnedDiff)
+  const xbrdxBalance = useTokenBalance(account ?? undefined, xToken)
+  const earnedBrdx = useEarnedBrdx(xbrdxBalance)
+  const earnedBrdxUSDCValue = useUSDCValue(earnedBrdx)
 
-  const countUpXDiffBalance = xdiffBalance?.toSignificant() ?? '0'
-  const countUpXDiffBalancePrevious = usePrevious(countUpXDiffBalance) ?? '0'
-  const countUpEarnedDiffBalanceUSDC = earnedDiffUSDCValue?.toSignificant() ?? '0'
-  const countUpEarnedDiffBalanceUSDCPrevious = usePrevious(countUpEarnedDiffBalanceUSDC) ?? '0'
+  const countUpXBrdxBalance = xbrdxBalance?.toSignificant() ?? '0'
+  const countUpXBrdxBalancePrevious = usePrevious(countUpXBrdxBalance) ?? '0'
+  const countUpEarnedBrdxBalanceUSDC = earnedBrdxUSDCValue?.toSignificant() ?? '0'
+  const countUpEarnedBrdxBalanceUSDCPrevious = usePrevious(countUpEarnedBrdxBalanceUSDC) ?? '0'
 
-  const countUpEarnedDiffBalance = earnedDiff?.toSignificant() ?? '0'
-  const countUpEarnedDiffBalancePrevious = usePrevious(countUpEarnedDiffBalance) ?? '0'
+  const countUpEarnedBrdxBalance = earnedBrdx?.toSignificant() ?? '0'
+  const countUpEarnedBrdxBalancePrevious = usePrevious(countUpEarnedBrdxBalance) ?? '0'
 
   return (
     <AssetsContainer>
@@ -85,11 +85,11 @@ const StakedAssetsTable = () => {
             </TokenLogo>
             <TokenAndUSDCBalance>
               <CountUp
-                key={xdiffBalance?.toFixed(0)}
+                key={xbrdxBalance?.toFixed(0)}
                 isCounting
                 decimalPlaces={2}
-                start={parseFloat(countUpXDiffBalancePrevious)}
-                end={parseFloat(countUpXDiffBalance)}
+                start={parseFloat(countUpXBrdxBalancePrevious)}
+                end={parseFloat(countUpXBrdxBalance)}
                 thousandsSeparator={','}
                 duration={1}
               />
@@ -102,19 +102,19 @@ const StakedAssetsTable = () => {
                 Staked BRDX
               </TYPE.body>
               <QuestionHelper
-                text={`${earnedDiff?.toFixed(
+                text={`${earnedBrdx?.toFixed(
                   2
-                )} BRDX is available upon unstaking ${xdiffBalance?.toSignificant()} xBRDX.`}
+                )} BRDX is available upon unstaking ${xbrdxBalance?.toSignificant()} xBRDX.`}
               />
             </TokenLogo>
             <TokenAndUSDCBalance style={{ marginLeft: 12 }}>
-              {earnedDiff ? (
+              {earnedBrdx ? (
                 <CountUp
-                  key={earnedDiff?.toFixed(0)}
+                  key={earnedBrdx?.toFixed(0)}
                   isCounting
                   decimalPlaces={2}
-                  start={parseFloat(countUpEarnedDiffBalancePrevious)}
-                  end={parseFloat(countUpEarnedDiffBalance)}
+                  start={parseFloat(countUpEarnedBrdxBalancePrevious)}
+                  end={parseFloat(countUpEarnedBrdxBalance)}
                   thousandsSeparator={','}
                   duration={1}
                 />
@@ -128,13 +128,13 @@ const StakedAssetsTable = () => {
               {' '}
               <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                 <span>$</span>
-                {earnedDiffUSDCValue ? (
+                {earnedBrdxUSDCValue ? (
                   <CountUp
-                    key={earnedDiffUSDCValue?.toFixed(0)}
+                    key={earnedBrdxUSDCValue?.toFixed(0)}
                     isCounting
                     decimalPlaces={2}
-                    start={parseFloat(countUpEarnedDiffBalanceUSDCPrevious)}
-                    end={parseFloat(countUpEarnedDiffBalanceUSDC)}
+                    start={parseFloat(countUpEarnedBrdxBalanceUSDCPrevious)}
+                    end={parseFloat(countUpEarnedBrdxBalanceUSDC)}
                     thousandsSeparator={','}
                     duration={1}
                   />

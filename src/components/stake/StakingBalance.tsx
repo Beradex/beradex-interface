@@ -4,7 +4,6 @@ import { AutoColumn } from 'components/Column'
 import StakingModal from './StakingModal'
 import UnstakingModal from './UnstakingModal'
 import styled from 'styled-components'
-// add XDIFFUSION down below //
 import { BRDX, XBRDX } from 'constants/tokens'
 import { useActiveWeb3React } from 'hooks/web3'
 import React, { useState } from 'react'
@@ -14,7 +13,7 @@ import { AutoRow, RowBetween } from '../../components/Row'
 import { CurrencyLogoFromList } from '../../components/CurrencyLogo/CurrencyLogoFromList'
 import { HRDark } from '../../components/HR/HR'
 
-import { useEarnedDiff, useStakingAPY } from 'components/stake/stake-hooks'
+import { useEarnedBrdx, useStakingAPY } from 'components/stake/stake-hooks'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import { CurrencyAmount } from 'sdk-core/entities'
 import { useUSDCValue } from '../../hooks/useUSDCPrice'
@@ -34,43 +33,43 @@ export function StakingBalance() {
   const { account, chainId } = useActiveWeb3React()
   const token = chainId ? BRDX[chainId] : undefined
   const xToken = chainId ? XBRDX[chainId] : undefined
-  const diffusionBalance = useTokenBalance(account ?? undefined, token)
-  const diffusionUSDCValue = useUSDCValue(diffusionBalance)
-  const xdiffBalance = useTokenBalance(account ?? undefined, xToken)
-  const earnedDiff = useEarnedDiff(xdiffBalance)
-  const earnedDiffUSDCValue = useUSDCValue(earnedDiff)
-  const xDiffContractBalance = useTokenBalance(chainId ? XBRDX[chainId].address : undefined, token)
-  const xDiffContractUSDCBalance = useUSDCValue(xDiffContractBalance)
-  const emission = token ? CurrencyAmount.fromRawAmount(token, 62500e18) : undefined // brdx: adjust for APR
+  const brdxBalance = useTokenBalance(account ?? undefined, token)
+  const brdxUSDCValue = useUSDCValue(brdxBalance)
+  const xbrdxBalance = useTokenBalance(account ?? undefined, xToken)
+  const earnedBrdx = useEarnedBrdx(xbrdxBalance)
+  const earnedBrdxUSDCValue = useUSDCValue(earnedBrdx)
+  const xBrdxContractBalance = useTokenBalance(chainId ? XBRDX[chainId].address : undefined, token)
+  const xBrdxContractUSDCBalance = useUSDCValue(xBrdxContractBalance)
+  const emission = token ? CurrencyAmount.fromRawAmount(token, 0e18) : undefined // BERADEX: CHANGE EMISSIONS/APR
 
-  const emissionPerSecond = token ? CurrencyAmount.fromRawAmount(token, 0.72337962963e18) : undefined
+  const emissionPerSecond = token ? CurrencyAmount.fromRawAmount(token, 0e18) : undefined // BERADEX: CHANGE EMISSIONS/APR
 
   const apr =
-    emission && xDiffContractBalance
+    emission && xBrdxContractBalance
       ? emission
-          ?.divide(xDiffContractBalance ? xDiffContractBalance : JSBI.BigInt(1))
+          ?.divide(xBrdxContractBalance ? xBrdxContractBalance : JSBI.BigInt(1))
           .multiply(100)
           .multiply(365).quotient
       : JSBI.BigInt(0)
 
-  const ratio = useEarnedDiff(xToken ? CurrencyAmount.fromRawAmount(xToken, 10 ** xToken.decimals) : undefined)
+  const ratio = useEarnedBrdx(xToken ? CurrencyAmount.fromRawAmount(xToken, 10 ** xToken.decimals) : undefined)
   const ratioPrevious = usePrevious(parseFloat(ratio ? ratio?.toSignificant() : '0'))
   const apy = useStakingAPY()
 
-  const countUpDiffusionBalance = diffusionBalance?.toSignificant() ?? '0'
-  const countUpDiffusionBalancePrevious = usePrevious(countUpDiffusionBalance) ?? '0'
+  const countUpBrdxBalance = brdxBalance?.toSignificant() ?? '0'
+  const countUpBrdxBalancePrevious = usePrevious(countUpBrdxBalance) ?? '0'
 
-  const countUpDiffusionBalanceUSDC = diffusionUSDCValue?.toSignificant() ?? '0'
-  const countUpDiffusionBalanceUSDCPrevious = usePrevious(countUpDiffusionBalanceUSDC) ?? '0'
+  const countUpBrdxBalanceUSDC = brdxUSDCValue?.toSignificant() ?? '0'
+  const countUpBrdxBalanceUSDCPrevious = usePrevious(countUpBrdxBalanceUSDC) ?? '0'
 
-  const countUpXDiffBalance = xdiffBalance?.toSignificant() ?? '0'
-  const countUpXDiffBalancePrevious = usePrevious(countUpXDiffBalance) ?? '0'
+  const countUpXBrdxBalance = xbrdxBalance?.toSignificant() ?? '0'
+  const countUpXBrdxBalancePrevious = usePrevious(countUpXBrdxBalance) ?? '0'
 
-  const countUpEarnedDiffBalanceUSDC = earnedDiffUSDCValue?.toSignificant() ?? '0'
-  const countUpEarnedDiffBalanceUSDCPrevious = usePrevious(countUpEarnedDiffBalanceUSDC) ?? '0'
+  const countUpEarnedBrdxBalanceUSDC = earnedBrdxUSDCValue?.toSignificant() ?? '0'
+  const countUpEarnedBrdxBalanceUSDCPrevious = usePrevious(countUpEarnedBrdxBalanceUSDC) ?? '0'
 
-  const countUpEarnedDiffBalance = earnedDiff?.toSignificant() ?? '0'
-  const countUpEarnedDiffBalancePrevious = usePrevious(countUpEarnedDiffBalance) ?? '0'
+  const countUpEarnedBrdxBalance = earnedBrdx?.toSignificant() ?? '0'
+  const countUpEarnedBrdxBalancePrevious = usePrevious(countUpEarnedBrdxBalance) ?? '0'
 
   const [stakingModalOpen, setStakingModalOpen] = useState(false)
   const [unstakeModalOpen, setUnstakeModalOpen] = useState(false)
@@ -79,10 +78,10 @@ export function StakingBalance() {
     <>
       <FarmYield
         apr={apr}
-        totalDeposits={xDiffContractBalance}
-        totalDepositsInUSD={xDiffContractUSDCBalance}
-        yourDeposits={earnedDiff}
-        yourDepositsInUSD={earnedDiffUSDCValue}
+        totalDeposits={xBrdxContractBalance}
+        totalDepositsInUSD={xBrdxContractUSDCBalance}
+        yourDeposits={earnedBrdx}
+        yourDepositsInUSD={earnedBrdxUSDCValue}
         primaryEmissionPerSecond={emissionPerSecond}
         emissionTimeframe={'daily'}
       />
@@ -134,13 +133,13 @@ export function StakingBalance() {
             </AutoColumn>
             <AutoColumn justify={'end'}>
               <TokenAndUSDCBalance>
-                {diffusionBalance?.toSignificant() ? (
+                {brdxBalance?.toSignificant() ? (
                   <CountUp
-                    key={diffusionBalance?.toSignificant()}
+                    key={brdxBalance?.toSignificant()}
                     isCounting
                     decimalPlaces={4}
-                    start={parseFloat(countUpDiffusionBalancePrevious)}
-                    end={parseFloat(countUpDiffusionBalance)}
+                    start={parseFloat(countUpBrdxBalancePrevious)}
+                    end={parseFloat(countUpBrdxBalance)}
                     thousandsSeparator={','}
                     duration={1}
                   />
@@ -149,13 +148,13 @@ export function StakingBalance() {
                 )}
                 <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                   <span>$</span>
-                  {diffusionUSDCValue ? (
+                  {brdxUSDCValue ? (
                     <CountUp
-                      key={diffusionUSDCValue?.toFixed(0)}
+                      key={brdxUSDCValue?.toFixed(0)}
                       isCounting
                       decimalPlaces={2}
-                      start={parseFloat(countUpDiffusionBalanceUSDCPrevious)}
-                      end={parseFloat(countUpDiffusionBalanceUSDC)}
+                      start={parseFloat(countUpBrdxBalanceUSDCPrevious)}
+                      end={parseFloat(countUpBrdxBalanceUSDC)}
                       thousandsSeparator={','}
                       duration={1}
                     />
@@ -179,13 +178,13 @@ export function StakingBalance() {
 
             <AutoColumn justify={'end'}>
               <TokenAndUSDCBalance>
-                {xdiffBalance ? (
+                {xbrdxBalance ? (
                   <CountUp
-                    key={xdiffBalance?.toFixed(0)}
+                    key={xbrdxBalance?.toFixed(0)}
                     isCounting
                     decimalPlaces={4}
-                    start={parseFloat(countUpXDiffBalancePrevious)}
-                    end={parseFloat(countUpXDiffBalance)}
+                    start={parseFloat(countUpXBrdxBalancePrevious)}
+                    end={parseFloat(countUpXBrdxBalance)}
                     thousandsSeparator={','}
                     duration={1}
                   />
@@ -194,13 +193,13 @@ export function StakingBalance() {
                 )}
                 <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                   <span>$</span>
-                  {earnedDiffUSDCValue ? (
+                  {earnedBrdxUSDCValue ? (
                     <CountUp
-                      key={earnedDiffUSDCValue?.toFixed(0)}
+                      key={earnedBrdxUSDCValue?.toFixed(0)}
                       isCounting
                       decimalPlaces={2}
-                      start={parseFloat(countUpEarnedDiffBalanceUSDCPrevious)}
-                      end={parseFloat(countUpEarnedDiffBalanceUSDC)}
+                      start={parseFloat(countUpEarnedBrdxBalanceUSDCPrevious)}
+                      end={parseFloat(countUpEarnedBrdxBalanceUSDC)}
                       thousandsSeparator={','}
                       duration={1}
                     />
@@ -220,22 +219,22 @@ export function StakingBalance() {
                   Staked BRDX
                 </TYPE.body>
                 <QuestionHelper
-                  text={`${earnedDiff?.toFixed(
+                  text={`${earnedBrdx?.toFixed(
                     2
-                  )} BRDX is available upon unstaking ${xdiffBalance?.toSignificant()} xBRDX.`}
+                  )} BRDX is available upon unstaking ${xbrdxBalance?.toSignificant()} xBRDX.`}
                 />
               </TokenLogo>
             </AutoColumn>
 
             <AutoColumn justify={'end'}>
               <TokenAndUSDCBalance>
-                {earnedDiff ? (
+                {earnedBrdx ? (
                   <CountUp
-                    key={earnedDiff?.toFixed(0)}
+                    key={earnedBrdx?.toFixed(0)}
                     isCounting
                     decimalPlaces={4}
-                    start={parseFloat(countUpEarnedDiffBalancePrevious)}
-                    end={parseFloat(countUpEarnedDiffBalance)}
+                    start={parseFloat(countUpEarnedBrdxBalancePrevious)}
+                    end={parseFloat(countUpEarnedBrdxBalance)}
                     thousandsSeparator={','}
                     duration={1}
                   />
@@ -244,13 +243,13 @@ export function StakingBalance() {
                 )}
                 <span style={{ color: '#ffe500', fontSize: '14px', paddingLeft: '5px' }}>
                   <span>$</span>
-                  {earnedDiffUSDCValue ? (
+                  {earnedBrdxUSDCValue ? (
                     <CountUp
-                      key={earnedDiffUSDCValue?.toFixed(0)}
+                      key={earnedBrdxUSDCValue?.toFixed(0)}
                       isCounting
                       decimalPlaces={2}
-                      start={parseFloat(countUpEarnedDiffBalanceUSDCPrevious)}
-                      end={parseFloat(countUpEarnedDiffBalanceUSDC)}
+                      start={parseFloat(countUpEarnedBrdxBalanceUSDCPrevious)}
+                      end={parseFloat(countUpEarnedBrdxBalanceUSDC)}
                       thousandsSeparator={','}
                       duration={1}
                     />
@@ -270,7 +269,7 @@ export function StakingBalance() {
             padding="8px"
             borderRadius="8px"
             width="140px"
-            disabled={!diffusionBalance?.greaterThan('0')}
+            disabled={!brdxBalance?.greaterThan('0')}
             onClick={() => setStakingModalOpen(true)}
           >
             Stake
@@ -281,7 +280,7 @@ export function StakingBalance() {
             padding="8px"
             borderRadius="8px"
             width="140px"
-            disabled={!xdiffBalance?.greaterThan('0')}
+            disabled={!xbrdxBalance?.greaterThan('0')}
             onClick={() => setUnstakeModalOpen(true)}
           >
             Unstake
@@ -292,13 +291,13 @@ export function StakingBalance() {
       <StakingModal
         isOpen={stakingModalOpen}
         onDismiss={() => setStakingModalOpen(false)}
-        availableAmount={diffusionBalance}
+        availableAmount={brdxBalance}
         currencyToAdd={xToken}
       />
       <UnstakingModal
         isOpen={unstakeModalOpen}
         onDismiss={() => setUnstakeModalOpen(false)}
-        availableAmount={xdiffBalance}
+        availableAmount={xbrdxBalance}
       />
     </>
   )

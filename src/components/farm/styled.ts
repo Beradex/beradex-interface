@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import { AutoColumn } from '../Column'
 
-import dBanner from '../../assets/images/diffusion-banner.png'
+import beraBanner from '../../assets/images/beradex-banner.png'
 
 import noise from '../../assets/images/noise.png'
 import { RowBetween } from 'components/Row'
@@ -27,7 +27,7 @@ export const DataCard = styled(AutoColumn)<{ disabled?: boolean }>`
 `
 
 export const CardBGImage = styled.span<{ desaturate?: boolean }>`
-  background: url(${dBanner});
+  background: url(${beraBanner});
   width: 1000px;
   height: 600px;
   position: absolute;

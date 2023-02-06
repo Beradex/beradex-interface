@@ -23,7 +23,7 @@ import EIP_2612 from 'abis/eip_2612.json'
 import { abi as MINICHEF_V2_ABI } from 'abis/MiniChefV2.json'
 import { abi as COMPLEX_REWARDER_TIME_ABI } from 'abis/ComplexRewarderTime.json'
 import { abi as AIRDROP_ABI } from 'abis/Airdrop.json'
-import { abi as DIFFUSION_BAR_ABI } from 'abis/DiffusionBar.json'
+import { abi as XBRDX_ABI } from 'abis/BeradexStaking.json'
 
 import { ChainId } from 'constants/chains'
 import { WETH, BRDX } from 'constants/tokens'
@@ -42,7 +42,7 @@ import {
   SOCKS_CONTROLLER_ADDRESSES,
   MINICHEF_V2_ADDRESS,
   AIRDROP_ADDRESS,
-  DIFFUSION_BAR_ADDRESS,
+  BERADEX_STAKING_ADDRESS,
 } from 'constants/addresses'
 import { abi as NFTPositionManagerABI } from '@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json'
 import { useMemo } from 'react'
@@ -60,7 +60,7 @@ import {
   Weth,
   ComplexRewarderTime,
   Airdrop,
-  DiffusionBar,
+  BeradexStaking,
 } from '../abis/types'
 
 import { useActiveWeb3React } from './web3'
@@ -159,8 +159,8 @@ export function useAirdropContract() {
   return useContract<Airdrop>(AIRDROP_ADDRESS, AIRDROP_ABI, true)
 }
 
-export function useDiffusionBar() {
-  return useContract<DiffusionBar>(DIFFUSION_BAR_ADDRESS, DIFFUSION_BAR_ABI, true)
+export function useBeradexStaking() {
+  return useContract<BeradexStaking>(BERADEX_STAKING_ADDRESS, XBRDX_ABI, true)
 }
 
 export function useStakingContract(stakingAddress?: string, withSignerIfPossible?: boolean) {

@@ -34,11 +34,16 @@ const AppWrapper = styled.div`
 /* const DottedBackground = styled.div`
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   background-size: 40px 40px;
   background-image: radial-gradient(circle, #ffffff 1px, rgba(50, 50, 50, 0.5) 1px); */
 
 const BodyWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: 40px 40px;
+  background-image: radial-gradient(circle, #121212 1px, rgba(0, 0, 0, 0) 1px);
   display: flex;
   flex-direction: column;
   width: 100%;

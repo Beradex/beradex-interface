@@ -14,7 +14,7 @@ import CurrencyInputPanel from '../CurrencyInputPanel'
 import { CurrencyAmount, Token } from 'sdk-core'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
-import { useDiffusionBar } from '../../hooks/useContract'
+import { useBeradexStaking } from '../../hooks/useContract'
 import { useApproveCallback, ApprovalState } from '../../hooks/useApproveCallback'
 import { useDerivedStakeInfo } from '../../state/stake/hooks'
 import { useTransactionAdder } from '../../state/transactions/hooks'
@@ -60,16 +60,16 @@ export default function StakingModal({ isOpen, onDismiss, availableAmount, curre
   // approval data for stake
   const deadline = useTransactionDeadline()
 
-  const diffusionBar = useDiffusionBar()
-  const [approval, approveCallback] = useApproveCallback(parsedAmount, diffusionBar?.address)
+  const beradexStaking = useBeradexStaking()
+  const [approval, approveCallback] = useApproveCallback(parsedAmount, beradexStaking?.address)
 
   async function onStake() {
     setAttempting(true)
 
-    if (diffusionBar && parsedAmount && deadline && account) {
+    if (beradexStaking && parsedAmount && deadline && account) {
       if (approval === ApprovalState.APPROVED) {
         try {
-          const response = await diffusionBar.enter(`0x${parsedAmount.quotient.toString(16)}`)
+          const response = await beradexStaking.enter(`0x${parsedAmount.quotient.toString(16)}`)
           addTransaction(response, {
             summary: 'Stake BRDX',
           })
@@ -156,7 +156,7 @@ export default function StakingModal({ isOpen, onDismiss, availableAmount, curre
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>Transaction Submitted</TYPE.largeHeader>
             <TYPE.body fontSize={20}>Staked {parsedAmount?.toSignificant(4)} BRDX</TYPE.body>
-            <AddXDiffButton addToken={addToken} success={success} />
+            <AddXBrdxButton addToken={addToken} success={success} />
           </AutoColumn>
         </SubmittedView>
       )}
@@ -164,7 +164,7 @@ export default function StakingModal({ isOpen, onDismiss, availableAmount, curre
   )
 }
 
-function AddXDiffButton({ addToken, success }: { addToken: () => void; success?: boolean }) {
+function AddXBrdxButton({ addToken, success }: { addToken: () => void; success?: boolean }) {
   if (success) {
     return <ButtonSecondary disabled>Added to Metamask</ButtonSecondary>
   }
