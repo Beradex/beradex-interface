@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import {
   BookOpen,
   Code,
-  Info,
+  //Info,
   MessageCircle,
   FileText,
   Twitter,
@@ -141,11 +141,7 @@ export default function Menu() {
 
       {open && (
         <MenuFlyout>
-          <MenuItem href="https://#">
-            <Info size={14} />
-            <div>About</div>
-          </MenuItem>
-          <MenuItem href="https://#">
+          <MenuItem href="https://https://docs.beradex.xyz/">
             <BookOpen size={14} />
             <div>Docs</div>
           </MenuItem>
@@ -157,7 +153,7 @@ export default function Menu() {
             <MessageCircle size={14} />
             <div>Discord</div>
           </MenuItem>
-          <MenuItem href="https://#">
+          <MenuItem href="https://www.beradex.xyz/">
             <FileText size={14} />
             <div>beraDEX</div>
           </MenuItem>
