@@ -141,7 +141,7 @@ export default function Menu() {
 
       {open && (
         <MenuFlyout>
-          <MenuItem href="https://https://docs.beradex.xyz/">
+          <MenuItem href="https://docs.beradex.xyz/">
             <BookOpen size={14} />
             <div>Docs</div>
           </MenuItem>
