@@ -43,7 +43,7 @@ export const injected = new InjectedConnector({
 export const walletconnect = new WalletConnectConnector({
   supportedChainIds: SUPPORTED_CHAIN_IDS,
   rpc: {
-    421613: 'https://goerli-rollup.arbitrum.io/rpc',
+    421613: 'https://endpoints.omniatech.io/v1/arbitrum/goerli/public',
   },
   // bridge: WALLETCONNECT_BRIDGE_URL,
   qrcode: true,

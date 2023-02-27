@@ -39,7 +39,7 @@ if (!!window.ethereum) {
             symbol: 'ETH',
             decimals: 18,
           },
-          rpcUrls: ['https://goerli-rollup.arbitrum.io/rpc'], // beradex: update RPC
+          rpcUrls: ['https://endpoints.omniatech.io/v1/arbitrum/goerli/public'], // beradex: update RPC
           blockExplorerUrls: ['https://goerli.arbiscan.io/'], // BERA MAINNET
         },
       ],

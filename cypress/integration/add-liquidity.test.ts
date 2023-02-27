@@ -3,7 +3,7 @@ import { CONTRACTS } from './contracts'
 describe('Add Liquidity', () => {
   it('Loads BERA correctly', () => {
     cy.visit(`/add/v2/BERA`)
-    cy.get('#add-liquidity-input-tokena .token-symbol-container').should('contain.text', 'EVMOS')
+    cy.get('#add-liquidity-input-tokena .token-symbol-container').should('contain.text', 'WETH')
   })
 
   it('loads the two correct tokens', () => {

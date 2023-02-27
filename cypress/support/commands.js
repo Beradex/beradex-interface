@@ -84,7 +84,7 @@ Cypress.Commands.overwrite('visit', (original, url, options) => {
       win.localStorage.clear()
       win.localStorage.setItem('brdx:disclaimer-accepted', 'true')
       // Current testnet rpc
-      const provider = new JsonRpcProvider('https://goerli-rollup.arbitrum.io/rpc', CHAIN_ID)
+      const provider = new JsonRpcProvider('https://endpoints.omniatech.io/v1/arbitrum/goerli/public', CHAIN_ID)
       const signer = new Wallet(TEST_PRIVATE_KEY, provider)
       win.ethereum = new CustomizedBridge(signer, provider)
     },
